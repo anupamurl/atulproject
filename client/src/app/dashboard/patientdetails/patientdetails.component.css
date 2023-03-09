@@ -1,0 +1,188 @@
+        .createBox {
+            width: 100%;
+            max-width: 783px;
+            margin: 190px auto;
+        }
+        
+        .infobox {
+            border: 1px solid #c2c2c2;
+            padding: 20px;
+        }
+        
+        .infobox h2 {
+            font-size: 18px;
+        }
+        
+        .infobox h3 {
+            font-size: 12px;
+        }
+        
+        .infobox ul {
+            margin: 0px;
+            padding: 0px;
+            display: 100%;
+            margin-top: 30px;
+        }
+        
+        .infobox ul li {
+            display: inline-block;
+            border-right: 1px solid #c2c2c2;
+            padding-right: 30px;
+            padding-left: 10px;
+        }
+        
+        .infobox ul li:first-child {
+            padding-left: 0px;
+        }
+        
+        .infobox ul li span {
+            display: block;
+        }
+        
+        .complaints {
+            padding: 20px;
+            border: 1px solid #c2c2c2;
+            border-top: 1px;
+        }
+        
+        .complaints strong {
+            padding-right: 30px;
+        }
+        
+        .adddiet {
+            padding: 20px;
+            border: 1px solid #c2c2c2;
+            margin-top: 10px;
+        }
+        
+        .adddiet span {
+            font-weight: bold;
+            font-size: 16px;
+            float: left;
+            padding-top: 5px;
+        }
+        
+        .adddiet input[type='date'] {
+            border: 1px solid #c2c2c2;
+            border-radius: 15px;
+            color: #858585;
+            float: right;
+            padding: 3px;
+        }
+        
+        .adddiet button {
+            float: right;
+            margin-left: 20px;
+            border-radius: 15px;
+            padding: 5px 15px 5px 15px;
+            background: #F2695C;
+            color: white;
+            border: none;
+            margin-left: 10px;
+        }
+        
+        .adddiet div {
+            clear: both;
+            width: 100%;
+        }
+        
+        .adddietbox {
+            padding: 20px;
+            padding-left: 0px;
+            padding-right: 0px;
+            border: 1px solid #c2c2c2;
+            margin-top: 10px;
+        }
+        
+        .tabPanel {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            border-bottom: 1px solid #c2c2c2;
+            padding-left: 10px;
+        }
+        
+        .tabPanel li {
+            display: inline-block;
+        }
+        
+        .tabPanel li a {
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-bottom: 2px solid white;
+        }
+        
+        .tabPanel li a.active {
+            border-bottom: 2px solid #F2695C;
+        }
+        
+        .NgxEditor__Wrapper {
+            margin-top: 10px;
+            border: none;
+            margin: 5px;
+        }
+        
+        .formBox {
+            width: 100%;
+            float: left;
+            display: block;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        .formBox article {
+            float: left;
+        }
+        
+        .formBox button {
+            float: right;
+            margin-left: 20px;
+            border-radius: 15px;
+            padding: 5px 15px 5px 15px;
+            background: #F2695C;
+            color: white;
+            border: none;
+            margin-left: 10px;
+        }
+        
+        .formBox input[type=time] {
+            border: 1px solid #c2c2c2;
+            border-radius: 15px;
+            color: #858585;
+            padding: 3px;
+        }
+        
+        .formBox select {
+            margin-left: 10px;
+            border-radius: 15px;
+            padding: 5px;
+            border: 1px solid #c2c2c2;
+        }
+        
+        .mealList {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            padding-top: 50px;
+            display: block;
+        }
+        
+        .mealList li {
+            padding: 10px;
+            border-top: 1px solid #c2c2c2;
+        }
+        
+        .mealList li .time {
+            display: inline-block;
+            font-weight: bold;
+        }
+        
+        .mealList li .hmtlbox {
+            display: inline-block;
+            margin-left: 10px;
+            max-width: 600px;
+            width: 100%;
+        }

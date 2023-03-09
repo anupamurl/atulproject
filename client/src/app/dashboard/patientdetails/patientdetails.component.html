@@ -1,0 +1,131 @@
+<div class="createBox">
+
+    <div class="infobox">
+        <h2> {{userDetails.name}} </h2>
+        <h3> {{userDetails.phone}} </h3>
+
+        <ul>
+
+            <li>
+
+                Email
+                <span> {{userDetails.email}} </span>
+
+            </li>
+
+            <li>
+
+                Age
+                <span>   {{userDetails.age}} </span>
+
+            </li>
+
+            <li>
+
+                Weight
+                <span>   {{userDetails.weight}} kg </span>
+
+            </li>
+
+
+            <li>
+
+                Height
+                <span>   {{userDetails.height}} cm</span>
+
+            </li>
+
+        </ul>
+
+
+    </div>
+
+    <div class="complaints">
+
+
+        <strong> Complaints </strong> {{userDetails.complaints}}
+
+    </div>
+
+    <div class="adddiet">
+
+        <span> Create New Diet Plan </span>
+        <article *ngIf="!gPdf">
+            <button (click)="createDietPlan()"> Create  </button>
+            <input type="date">
+        </article>
+
+        <article *ngIf="gPdf">
+            <button>         Generate PDF  </button>
+
+        </article>
+
+        <div> </div>
+
+
+
+
+    </div>
+    <div class="adddietbox">
+        <ul class="tabPanel">
+            <li>
+                <a href="javascript:;" [ngClass]="{ 'active': tab==0 }" (click)="tabChange(0)">    Create Meal Plan </a>
+            </li>
+            <li>
+                <a href="javascript:;" [ngClass]="{ 'active': tab==1 }" (click)="tabChange(1)">  Guideline </a>
+            </li>
+        </ul>
+        <div class="mealplan" [hidden]="tab==1">
+            <div class="NgxEditor__Wrapper">
+                <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+                <ngx-editor [editor]="editor" [(ngModel)]="meal.mealhtml" [disabled]="false" [placeholder]="'Typ Meal Options'"></ngx-editor>
+            </div>
+
+            <div class="formBox">
+                <article>
+                    <input type="time" [(ngModel)]="meal.time">
+                    <select [(ngModel)]="meal.type"> 
+
+                            <option> Breakfast     </option>         
+                            <option> Lunch   </option>
+                            <option> Snacks   </option>
+                            <option> Dinner   </option>
+
+</select>
+
+                </article>
+
+                <button (click)="addMeal()">  Add  This</button>
+
+            </div>
+
+
+            <ul class="mealList">
+                <li *ngFor="let item of userDetails.mealplan">
+                    <span class="time">   {{item.time}} </span>
+                    <div class="hmtlbox" [innerHTML]="item.mealhtml | SanitizeHtmlPipe "></div>
+                </li>
+            </ul>
+            <div class="clearfix"> </div>
+
+        </div>
+
+        <div class="guideLine" [hidden]="tab==0">
+            <div class="NgxEditor__Wrapper">
+                <ngx-editor-menu [editor]="guideeditor"> </ngx-editor-menu>
+
+                <ngx-editor [editor]="guideeditor" [(ngModel)]="guide.guidehtml" [disabled]="false" [placeholder]="'Typ Guideline Options'"></ngx-editor>
+
+            </div>
+            <div class="formBox">
+                <button (click)="addGuideLIne()">Add  This</button>
+            </div>
+            <ul class="mealList">
+                <li *ngFor="let item of userDetails.guideline">
+                    <div class="hmtlbox" [innerHTML]="item.guidehtml | SanitizeHtmlPipe "></div>
+                </li>
+            </ul>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

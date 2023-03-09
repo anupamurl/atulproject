@@ -1,0 +1,48 @@
+<div class="leftbox">
+    <article class="profile">
+        <div class="img">
+            <img src="../../assets/logo.png">
+        </div>
+        <aside>
+            <span> Dr. Sumitra Sinha</span>
+            <a href="javascript:;" (click)="logout()">Logout</a>
+        </aside>
+    </article>
+    <article class="searchBox">
+
+        <input type="text" (input)="onSearchChange($event.target)" />
+
+    </article>
+
+    <div class="userlist">
+
+        <ul>
+
+
+            <li *ngFor="let patient of allPatinet">
+
+                <div class="imgbox">
+                    <b>      {{patient.title }}    </b>
+                </div>
+
+                <aside>
+                    <a [routerLink]="['patientdetail', patient._id]"> {{patient.name}} </a>
+                    <span> {{ patient.phone}} </span>
+                </aside>
+            </li>
+
+        </ul>
+
+
+    </div>
+
+    <button class="addButton" [routerLink]="['addpatient']" routerLinkActive="router-link-active">
+        
+        Add a patient
+    
+    </button>
+
+</div>
+<div class="rightbox">
+    <router-outlet></router-outlet>
+</div>

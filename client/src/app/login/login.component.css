@@ -1,0 +1,29 @@
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+h1 {
+    font-size: 28px;
+    display: block;
+    text-align: center;
+}
+
+.card-container.card {
+    max-width: 478px;
+    padding: 40px 40px;
+    border: none;
+}
+
+.card {
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+}

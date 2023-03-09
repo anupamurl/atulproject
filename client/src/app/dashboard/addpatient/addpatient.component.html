@@ -1,0 +1,45 @@
+<div class="createBox">
+
+    <h2> Create New Patient </h2>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <ul>
+            <li>
+                <input type="text" placeholder="name" formControlName="name" />
+            </li>
+
+            <li>
+                <input type="text" placeholder="Phone Number" formControlName="phone" />
+            </li>
+
+            <li>
+                <input type="text" placeholder="Email Address" formControlName="email" />
+            </li>
+
+            <li>
+
+                <ul>
+                    <li>
+                        <input type="text" placeholder="age" formControlName="age" />
+                    </li>
+
+                    <li>
+                        <input type="text" placeholder="weight" formControlName="weight" />
+                    </li>
+
+                    <li>
+                        <input type="text" placeholder="height" formControlName="height" />
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li> <textarea formControlName="complaints"> Complaints </textarea></li>
+
+            <li> <button type="submit"> Continue   </button> </li>
+
+
+        </ul>
+    </form>
+
+</div>

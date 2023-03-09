@@ -1,0 +1,51 @@
+ul,
+li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.createBox {
+    width: 570px;
+    margin: 190px auto;
+}
+
+.createBox ul li {
+    margin-bottom: 10px;
+}
+
+.createBox ul li ul li {
+    float: left;
+    width: 32%;
+}
+
+.createBox ul li ul li:nth-child(2) {
+    margin-left: 11px;
+    margin-right: 11px;
+}
+
+.createBox ul li input[type=text] {
+    border-radius: 5px;
+    border: 1px solid;
+    border: 1px solid #c2c2c2;
+    width: 100%;
+    padding: 5px;
+}
+
+.createBox ul li textarea {
+    border-radius: 5px;
+    border: 1px solid;
+    border: 1px solid #c2c2c2;
+    width: 100%;
+    padding: 5px;
+}
+
+.createBox ul li button {
+    border-radius: 15px;
+    width: 100%;
+    margin: 0px auto;
+    padding: 5px;
+    background: #F2695C;
+    color: white;
+    border: none;
+}
