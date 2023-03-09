@@ -34,6 +34,7 @@ export class AddpatientComponent {
 
     console.warn(this.profileForm.value);
     this.PatientService.addPatiniet( this.profileForm.value  ).subscribe((data)=>{
+      this.profileForm.reset()
       this.SharedseriveService.patiendAdd.emit(data)
     })
   }

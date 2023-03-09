@@ -55,8 +55,9 @@
             <input type="date">
         </article>
 
-        <article *ngIf="gPdf">
-            <button>         Generate PDF  </button>
+        <article *ngIf="gPdf"> 
+      
+            <button >  <a href="http://localhost:8080/generateReport/{{userDetails._id}}">  Generate PDF </a>        </button>
 
         </article>
 
