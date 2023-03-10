@@ -81,6 +81,11 @@
             margin-left: 10px;
         }
         
+        .adddiet button a {
+            text-decoration: none;
+            color: white;
+        }
+        
         .adddiet div {
             clear: both;
             width: 100%;

@@ -22,6 +22,7 @@ export class DashboardComponent {
 
   allPatinet: any = [];
   allPatinetMaster: any = [];
+  userInfo : any ;
 
   constructor(
     private storageService: StorageService,
@@ -29,7 +30,8 @@ export class DashboardComponent {
     private eventBusService: EventBusService,
     private router :Router,
     private PatientService : PatientService,
-    private SharedseriveService : SharedseriveService
+    private SharedseriveService : SharedseriveService,
+ 
   ) {
     this.getAllPatient();
     this.SharedseriveService.patiendAdd.subscribe((data)=>{
@@ -37,8 +39,17 @@ export class DashboardComponent {
 
       this.getAllPatient()
 
+
     })
+    this.getuserDetail()
   }
+
+  getuserDetail(){
+  
+
+   this.userInfo =  this.storageService.getUser() 
+ 
+    }
 
 
   onSearchChange(searchValue: any): void {  
