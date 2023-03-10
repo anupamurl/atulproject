@@ -90,15 +90,34 @@ export class PatientdetailsComponent {
 
 
     this.PatientService.getPatientByID(this.$ID).subscribe((data) => {
-      this.userDetails = data;
- 
+      this.userDetails = data; 
+    })
 
+
+  }
+
+  deleteMplan($item:any){
+
+    this.PatientService.deletePlan(this.$ID,$item._id).subscribe((data) => {
+      this.getPatientByID()
+      console.log(data)
+    })
+
+
+  }
+
+  deleteguide($item:any){
+
+    this.PatientService.deleteguide(this.$ID,$item._id).subscribe((data) => {
+      this.getPatientByID()
+      console.log(data)
     })
 
 
   }
 
 
+  
   addMeal() {
 
    this.userDetails.mealplan.push(this.meal) 

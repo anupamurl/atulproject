@@ -173,6 +173,7 @@
         .mealList li {
             padding: 10px;
             border-top: 1px solid #c2c2c2;
+            position: relative;
         }
         
         .mealList li .time {
@@ -185,4 +186,25 @@
             margin-left: 10px;
             max-width: 600px;
             width: 100%;
+        }
+        
+        .action {
+            border: 1px solid #F2695C;
+            border-radius: 15px;
+            max-width: 150px;
+            float: right;
+            position: absolute;
+            right: 40px;
+            top: 20px
+        }
+        
+        .action a {
+            padding: 3px 10px 3px 10px;
+            color: #F2695C;
+            text-decoration: none;
+        }
+        
+        .action a:first-child {
+            border-right: 1px solid #F2695C;
+            ;
         }

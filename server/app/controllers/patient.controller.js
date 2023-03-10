@@ -84,3 +84,29 @@ exports.addGuide = (req, res) => {
         res.send({ message: "guideline was added successfully!" });
     })
 };
+
+
+
+exports.deletelan = (req, res) => {
+    let pid = req.body.pid;
+    let itemId = req.body.itemId;
+    Patient.findOneAndUpdate({ _id: pid }, { $pull: { mealplan: { _id: itemId } } }, { new: true }).exec((err) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send({ message: "mealplan was deleted successfully!" });
+        }
+    });
+};
+
+exports.deleteguide = (req, res) => {
+    let pid = req.body.pid;
+    let itemId = req.body.itemId;
+    Patient.findOneAndUpdate({ _id: pid }, { $pull: { guideline: { _id: itemId } } }, { new: true }).exec((err) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send({ message: "guideline was deleted successfully!" });
+        }
+    });
+};

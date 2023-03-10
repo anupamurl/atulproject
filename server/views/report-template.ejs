@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
+
+<head>
+    <style>
         table {
             border-collapse: collapse;
         }
-        table, th, td {
+        
+        table,
+        th,
+        td {
             border: 1px solid black;
         }
-        </style>
-    </head>
-    <body>
-        <div style="width: 85%; margin: 0 7.5%;">
-            <div style="text-align: center; padding-left: 50px;">            
-                <h3>Student Report</h5>
-                <table>
-                <% if (students.length > 0) { %>
-                    <% students.forEach(student => {%>
-                       <tr><td><%= student.name %></td><td><%= student.email %></td><td><%= student.city %></td><td><%=student.country %></td></tr>
-                    <%  });%>
-                <% }%>
-                </table>
-             </div>
+    </style>
+</head>
+
+<body>
+    <div style="width: 85%; margin: 0 7.5%;">
+        <div style="text-align: center; padding-left: 50px;">
+            <h3>Student Report
+                <%= users.name %>
+                    </h5>
+                    <table>
+                        <% if (users.mealplan.length > 0) { %>
+                            <% users.mealplan.forEach(user => {%>
+                                <tr>
+                                    <td>
+                                        <%= user.mealhtml %>
+                                    </td>
+
+                                </tr>
+                                <%  });%>
+                                    <% }%>
+                    </table>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

@@ -55,9 +55,9 @@
             <input type="date">
         </article>
 
-        <article *ngIf="gPdf"> 
-      
-            <button >  <a href="http://localhost:8080/generateReport/{{userDetails._id}}">  Generate PDF </a>        </button>
+        <article *ngIf="gPdf">
+
+            <button>  <a href="http://localhost:8080/generateReport/{{userDetails._id}}">  Generate PDF </a>        </button>
 
         </article>
 
@@ -102,9 +102,16 @@
 
 
             <ul class="mealList">
-                <li *ngFor="let item of userDetails.mealplan">
+                <li *ngFor="let item of userDetails.mealplan;  let i = index ">
                     <span class="time">   {{item.time}} </span>
                     <div class="hmtlbox" [innerHTML]="item.mealhtml | SanitizeHtmlPipe "></div>
+
+
+                    <div class="action">
+                        <a href="javascript:;"> Edit </a>
+                        <a href="javascript:;" (click)="deleteMplan(item)"> Delete </a>
+
+                    </div>
                 </li>
             </ul>
             <div class="clearfix"> </div>
@@ -124,6 +131,12 @@
             <ul class="mealList">
                 <li *ngFor="let item of userDetails.guideline">
                     <div class="hmtlbox" [innerHTML]="item.guidehtml | SanitizeHtmlPipe "></div>
+
+                    <div class="action">
+                        <a href="javascript:;"> Edit </a>
+                        <a href="javascript:;" (click)="deleteguide(item)"> Delete </a>
+
+                    </div>
                 </li>
             </ul>
             <div class="clearfix"> </div>

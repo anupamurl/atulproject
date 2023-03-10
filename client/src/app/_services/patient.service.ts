@@ -38,5 +38,31 @@ export class PatientService {
 
   }
   
+
+  deletePlan($pid:any,$itemId : any){
+
+    let $data =  { 
+     'pid' : $pid,
+     'itemId' : $itemId
+    }
+    return this.http.post(AUTH_API+ 'deletelan', $data );
+
+  }
+  
+
+  deleteguide($pid:any,$itemId : any){
+
+    let $data =  { 
+     'pid' : $pid,
+     'itemId' : $itemId
+    }
+    return this.http.post(AUTH_API+ 'deleteguide', $data );
+
+  }
+  
+
+  
+
+
 }
 
