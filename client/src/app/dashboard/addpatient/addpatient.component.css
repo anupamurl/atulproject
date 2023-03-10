@@ -24,7 +24,7 @@ li {
     margin-right: 11px;
 }
 
-.createBox ul li input[type=text] {
+.createBox ul li input {
     border-radius: 5px;
     border: 1px solid;
     border: 1px solid #c2c2c2;
