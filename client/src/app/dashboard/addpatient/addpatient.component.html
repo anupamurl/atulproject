@@ -4,7 +4,11 @@
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
         <ul>
             <li>
-                <input type="text" placeholder="name" formControlName="name" />
+                <input type="text" placeholder="Name" formControlName="name" [ngClass]="{ 'error' : profileForm.controls['name'].invalid && profileForm.controls['name'].touched }" />
+
+
+
+
             </li>
 
             <li>
@@ -36,7 +40,7 @@
 
             <li> <textarea formControlName="complaints"> Complaints </textarea></li>
 
-            <li> <button type="submit"> Continue   </button> </li>
+            <li> <button type="submit" [disabled]="!profileForm.valid"> Continue   </button> </li>
 
 
         </ul>

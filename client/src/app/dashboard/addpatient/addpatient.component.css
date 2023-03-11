@@ -26,10 +26,14 @@ li {
 
 .createBox ul li input {
     border-radius: 5px;
-    border: 1px solid;
     border: 1px solid #c2c2c2;
     width: 100%;
     padding: 5px;
+    transition: border .5s;
+}
+
+.createBox ul li input.error {
+    border: 1px solid red;
 }
 
 .createBox ul li textarea {
@@ -48,4 +52,11 @@ li {
     background: #F2695C;
     color: white;
     border: none;
+    transition: all .5s;
+}
+
+.createBox ul li button:disabled,
+.createBox ul li button[disabled] {
+    background: #cccccc;
+    color: #666666;
 }

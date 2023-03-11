@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+ 
 import { PatientService } from '../../_services/patient.service';
 import { SharedseriveService } from '../../_services/sharedserive.service';
-
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
  
 @Component({
   selector: 'app-addpatient',
@@ -10,17 +10,22 @@ import { SharedseriveService } from '../../_services/sharedserive.service';
   styleUrls: ['./addpatient.component.css']
 })
 export class AddpatientComponent {
-
+ 
   constructor(
     private PatientService: PatientService , 
-    private SharedseriveService : SharedseriveService
+    private SharedseriveService : SharedseriveService,
+    private fb: FormBuilder
     )
     {
 
     }
 
-  profileForm = new FormGroup({
-    name: new FormControl(''),
+
+ 
+
+
+  profileForm =  new FormGroup({
+    name: new FormControl('' , Validators.required),
     phone: new FormControl(''),
     email: new FormControl(''),
     age: new FormControl(''),
