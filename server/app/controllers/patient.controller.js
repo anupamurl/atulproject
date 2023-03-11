@@ -128,6 +128,29 @@ exports.deletelan = (req, res) => {
     });
 };
 
+
+
+exports.deletediteplan = (req, res) => {
+
+    let pid = req.body.pid;
+    let plandate = req.body.plandate;
+
+    console.log(pid)
+    console.log(plandate)
+
+    Patient.findOneAndUpdate({ _id: pid }, { $pull: { plandate: { _id: plandate } } }).exec((err) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send({ message: "Diet Plan  was deleted successfully!" });
+        }
+    });
+};
+
+
+
+
+
 exports.deleteguide = (req, res) => {
     let pid = req.body.pid;
     let itemId = req.body.itemId;

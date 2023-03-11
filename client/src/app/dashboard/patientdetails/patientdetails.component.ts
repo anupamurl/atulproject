@@ -121,6 +121,24 @@ export class PatientdetailsComponent {
 
   }
 
+
+  deleteDitePlan($id:any){
+
+    console.log($id)
+    console.log(this.$ID)
+
+    this.PatientService.deletediteplan(this.$ID, $id  ).subscribe((data) => {
+      this.getPatientByID()
+   
+ 
+    })
+
+
+
+
+
+  }
+
   deleteMplan($item:any){
 
     this.PatientService.deletePlan(this.$ID,$item._id,    this.activePlanID  ).subscribe((data) => {
