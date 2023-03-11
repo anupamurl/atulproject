@@ -40,12 +40,12 @@ exports.addpatient = (req, res) => {
         phone: req.body.phone,
         weight: req.body.weight
     });
-    patient.save((err) => {
+    patient.save((err, data) => {
         if (err) {
             res.status(500).send({ message: err });
             return;
         }
-        res.send({ message: "Patient was registered successfully!" });
+        res.send({ message: "Patient was registered successfully!", id: data._id });
     });
 
 };
