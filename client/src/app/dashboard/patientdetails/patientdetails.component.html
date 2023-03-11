@@ -48,11 +48,25 @@
     </div>
 
     <div class="adddiet">
-
         <span> Create New Diet Plan </span>
         <article *ngIf="!gPdf">
-            <button (click)="createDietPlan()"> Create  </button>
-            <input type="date">
+            <button (click)="createDietPlan()" [disabled]="!range.value.start || !range.value.end"> Create  </button>
+
+
+
+
+            <div class="rangeBox">
+                <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                    <input matStartDate formControlName="start" placeholder="Start date">
+                    <input matEndDate formControlName="end" placeholder="End date">
+                </mat-date-range-input>
+
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+
+            </div>
+
+
         </article>
 
         <article *ngIf="gPdf">
@@ -67,6 +81,32 @@
 
 
     </div>
+
+
+    <div class="mat-card" *ngFor="let item of userDetails.plandate;  let i = index " [hidden]="activePlanID && activePlanID!=item._id">
+
+
+        <div class="head">
+            <strong> Diet Plan </strong>
+
+
+            <span>{{item.start | date   }}  - {{item.end | date   }} </span>
+        </div>
+
+        <div class="actionbox">
+
+            <button (click)="activePlan( item._id )" *ngIf="!activePlanID">  Continue </button>
+            <button (click)="activePlanID=null" *ngIf="activePlanID">  Back </button>
+
+
+            <a href="javascript:;"><img src="/assets/delete.png"></a>
+
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+
+
     <div class="adddietbox">
         <ul class="tabPanel">
             <li>
@@ -102,7 +142,8 @@
 
 
             <ul class="mealList">
-                <li *ngFor="let item of userDetails.mealplan;  let i = index ">
+
+                <li *ngFor="let item of mealList;  let i = index ">
                     <span class="time">   {{item.time}} </span>
                     <div class="hmtlbox" [innerHTML]="item.mealhtml | SanitizeHtmlPipe "></div>
 

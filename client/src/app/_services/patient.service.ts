@@ -37,13 +37,20 @@ export class PatientService {
     return this.http.post(AUTH_API+ 'addGuide', $data );
 
   }
+
+
+  addplandate($data:any){
+    return this.http.post(AUTH_API+ 'addplandate', $data );
+
+  }
   
 
-  deletePlan($pid:any,$itemId : any){
+  deletePlan($pid:any,$itemId : any, activePlanID : any ){
 
     let $data =  { 
      'pid' : $pid,
-     'itemId' : $itemId
+     'itemId' : $itemId,
+      'plandate' :    activePlanID ,
     }
     return this.http.post(AUTH_API+ 'deletelan', $data );
 

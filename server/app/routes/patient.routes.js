@@ -18,6 +18,7 @@ module.exports = function(app) {
     app.post("/api/patient/addGuide", controller.addGuide);
     app.post("/api/patient/deletelan", controller.deletelan);
     app.post("/api/patient/deleteguide", controller.deleteguide);
+    app.post("/api/patient/addplandate", controller.addplandate);
 
 
 

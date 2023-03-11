@@ -55,25 +55,33 @@ exports.addpatient = (req, res) => {
 exports.addMeal = (req, res) => {
     let id = req.body.id;
     let mealplan = req.body.mealplan;
+    let plandate = req.body.plandate;
 
-    console.log(id)
-    console.log(mealplan)
 
-    Patient.findByIdAndUpdate(id, { mealplan: mealplan }, (err) => {
-        if (err) {
-            res.status(500).send({ message: err });
-            return;
-        }
-        res.send({ message: "mealplan was added successfully!" });
-    })
+
+
+
+    Patient.findOneAndUpdate({ _id: id, "plandate._id": plandate }, { "$push": { 'plandate.$.mealplan': mealplan } },
+        (err, data) => {
+
+
+
+            if (err) {
+                res.status(500).send({ message: err });
+                return;
+            }
+            res.send({ message: "mealplan was added successfully!" });
+
+
+        })
+
+
 };
 
 
 exports.addGuide = (req, res) => {
     let id = req.body.id;
     let guideline = req.body.guideline;
-    console.log(guideline)
-    console.log(id)
 
 
     Patient.findByIdAndUpdate(id, { guideline: guideline }, (err) => {
@@ -85,12 +93,28 @@ exports.addGuide = (req, res) => {
     })
 };
 
+exports.addplandate = (req, res) => {
+    let id = req.body.id;
+    let plandate = req.body.plandate;
+
+
+
+    Patient.findByIdAndUpdate(id, { $push: { plandate: plandate } }, (err) => {
+        if (err) {
+            res.status(500).send({ message: err });
+            return;
+        }
+        res.send({ message: "plandate was added successfully!" });
+    })
+};
 
 
 exports.deletelan = (req, res) => {
     let pid = req.body.pid;
     let itemId = req.body.itemId;
-    Patient.findOneAndUpdate({ _id: pid }, { $pull: { mealplan: { _id: itemId } } }, { new: true }).exec((err) => {
+    let plandate = req.body.plandate;
+
+    Patient.findOneAndUpdate({ _id: pid, 'plandate._id': plandate }, { $pull: { 'plandate.$.mealplan': { _id: itemId } } }).exec((err) => {
         if (err) {
             res.send(err)
         } else {
@@ -102,7 +126,7 @@ exports.deletelan = (req, res) => {
 exports.deleteguide = (req, res) => {
     let pid = req.body.pid;
     let itemId = req.body.itemId;
-    Patient.findOneAndUpdate({ _id: pid }, { $pull: { guideline: { _id: itemId } } }, { new: true }).exec((err) => {
+    Patient.findOneAndUpdate({ _id: pid }, { $push: { guideline: { _id: itemId } } }, { new: true }).exec((err) => {
         if (err) {
             res.send(err)
         } else {

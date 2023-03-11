@@ -12,6 +12,12 @@ const guideline = new mongoose.Schema({
 }, { timestamps: true });
 
 
+const plandate = new mongoose.Schema({
+    start: Date,
+    end: Date,
+    mealplan: [mealplan],
+    guideline: [guideline]
+}, { timestamps: true });
 
 
 
@@ -25,8 +31,7 @@ const Patient = mongoose.model(
         name: String,
         phone: String,
         weight: Number,
-        mealplan: [mealplan],
-        guideline: [guideline]
+        plandate: [plandate]
 
     }, { timestamps: true })
 );

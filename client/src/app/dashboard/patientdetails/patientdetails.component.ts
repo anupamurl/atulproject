@@ -5,7 +5,10 @@ import { SharedseriveService } from '../../_services/sharedserive.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Editor } from 'ngx-editor';
 import { DomSanitizer } from '@angular/platform-browser';
- 
+const today = new Date();
+const month = today.getMonth();
+const year = today.getFullYear();
+
 
 @Component({
   selector: 'app-patientdetails',
@@ -22,7 +25,8 @@ export class PatientdetailsComponent {
   $ID: any;
   gPdf: boolean = false;
   tab: number = 0;
-
+  activePlanID : any =null;
+  mealList : any = [];
 
   meal: any = {
     mealhtml: "",
@@ -39,6 +43,10 @@ export class PatientdetailsComponent {
 
 
 
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
 
   constructor(
     private PatientService: PatientService,
@@ -71,7 +79,22 @@ export class PatientdetailsComponent {
 
   createDietPlan() {
 
-    this.gPdf = true
+    console.log(this.range.value)
+
+    let data = { 
+      id : this.userDetails._id,
+      plandate : this.range.value
+    }
+    this.PatientService.addplandate(data).subscribe(($val)=>{ 
+
+      console.log($val)
+      this.getPatientByID()
+
+
+
+    })
+
+    //this.gPdf = true
 
 
   }
@@ -98,7 +121,7 @@ export class PatientdetailsComponent {
 
   deleteMplan($item:any){
 
-    this.PatientService.deletePlan(this.$ID,$item._id).subscribe((data) => {
+    this.PatientService.deletePlan(this.$ID,$item._id,    this.activePlanID  ).subscribe((data) => {
       this.getPatientByID()
       console.log(data)
     })
@@ -117,13 +140,33 @@ export class PatientdetailsComponent {
   }
 
 
+  activePlan ($ID:any) { 
+
+    this.activePlanID = $ID
+
+
+   this.mealList =  this.userDetails.plandate.filter((node:any)=>{
+
+      return node._id == this.activePlanID
+    }).map((n:any)=>{
+
+      return n = n.mealplan
+
+    }) 
+    
+    this.mealList = (this.mealList.length) ? this.mealList[0] : []
+ 
+
+  }
+
   
   addMeal() {
 
-   this.userDetails.mealplan.push(this.meal) 
+ 
     let data = { 
       id : this.userDetails._id,
-      mealplan : this.userDetails.mealplan
+      plandate :  this.activePlanID ,
+      mealplan :  this.meal
     }
     this.PatientService.addMeal(data).subscribe(($val)=>{ 
       this.getPatientByID()

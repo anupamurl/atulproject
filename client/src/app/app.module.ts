@@ -20,6 +20,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PatientdetailsComponent } from './dashboard/patientdetails/patientdetails.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { SanitizeHtmlPipePipe } from './SanitizeHtmlPipe.pipe';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +49,14 @@ import { SanitizeHtmlPipePipe } from './SanitizeHtmlPipe.pipe';
     HttpClientModule ,
     NgxEditorModule.forRoot({
        
-    })
+    }),
+ 
+    BrowserAnimationsModule,
+    MatDatepickerModule
+    ,MatNativeDateModule,
+    MatInputModule,
+    MatCardModule
+
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

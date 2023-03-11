@@ -55,6 +55,10 @@
             margin-top: 10px;
         }
         
+        .adddiet article {
+            float: right;
+        }
+        
         .adddiet span {
             font-weight: bold;
             font-size: 16px;
@@ -79,6 +83,12 @@
             color: white;
             border: none;
             margin-left: 10px;
+            transition: background .5s;
+        }
+        
+        .adddiet button[disabled] {
+            background: #cccccc;
+            color: #666666;
         }
         
         .adddiet button a {
@@ -212,4 +222,51 @@
         .action a:first-child {
             border-right: 1px solid #F2695C;
             ;
+        }
+        
+        .rangeBox {
+            border: 1px solid #F2695C;
+            width: 255px !important;
+            float: right;
+            margin-top: -10px;
+            clear: none !important;
+            border-radius: 25px;
+        }
+        
+        .mat-date-range-input {
+            display: block;
+            width: 200px;
+            float: left;
+            padding: 15px;
+        }
+        
+        .mat-card {
+            margin-top: 10px;
+            box-shadow: none;
+            border: 1px solid #c2c2c2;
+            padding: 10px;
+        }
+        
+        .mat-card div.head {
+            float: left;
+            font-size: 20px;
+        }
+        
+        .mat-card div.head span {
+            padding-left: 80px;
+            font-size: 18px;
+        }
+        
+        .mat-card div.actionbox {
+            float: right;
+        }
+        
+        .mat-card div.actionbox button {
+            margin-left: 20px;
+            border-radius: 15px;
+            padding: 5px 15px 5px 15px;
+            background: #F2695C;
+            color: white;
+            border: none;
+            margin-right: 10px;
         }
