@@ -1,40 +1,334 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <style>
-        table {
-            border-collapse: collapse;
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <title>file_1678509306393</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            text-indent: 0;
+        }
+        
+        h2 {
+            color: #F1695C;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14pt;
+        }
+        
+        .s1 {
+            color: #424242;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+        
+        .s2 {
+            color: black;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+        
+        .s3 {
+            color: black;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
+        
+        h3 {
+            color: #F1695C;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
+        
+        .s4 {
+            color: black;
+            font-family: 'Lato', sans-serif;
+            font-style: italic;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+        
+        h1 {
+            color: #F1695C;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16pt;
+        }
+        
+        h4 {
+            color: black;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+        
+        p {
+            color: black;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10pt;
+            margin: 0pt;
+        }
+        
+        .s5 {
+            color: #00F;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+        
+        .s6 {
+            color: #F00;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+        
+        li {
+            display: block;
+        }
+        
+        #l1 {
+            padding-left: 0pt;
+        }
+        
+        #l1>li>*:first-child:before {
+            content: "● ";
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
         }
         
         table,
-        th,
-        td {
-            border: 1px solid black;
+        tbody {
+            vertical-align: top;
+            overflow: visible;
         }
     </style>
 </head>
 
-<body>
-    <div style="width: 85%; margin: 0 7.5%;">
-        <div style="text-align: center; padding-left: 50px;">
-            <h3>Student Report
-                <%= users.name %>
-                    </h5>
-                    <table>
-                        <% if (users.mealplan.length > 0) { %>
-                            <% users.mealplan.forEach(user => {%>
-                                <tr>
-                                    <td>
-                                        <%= user.mealhtml %>
-                                    </td>
-
-                                </tr>
-                                <%  });%>
-                                    <% }%>
-                    </table>
-        </div>
-    </div>
+<body style="width:1000px; margin: auto;">
+    <p style="text-indent: 0pt;text-align: left;"><span><table border="0" cellspacing="0" cellpadding="0" style="position:absolute;"><tr><td><img width="50" height="50" src="data:image/png;base64,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"/></td></tr></table style="width:100%"></span></p>
+    <h2 style="padding-top: 4pt;padding-left: 88pt;text-indent: 0pt;text-align: left;">Peping Health</h2>
+    <p class="s1" style="padding-top: 2pt;padding-left: 88pt;text-indent: 0pt;line-height: 114%;text-align: left;">Dietitian Ranjani Raman, M.Sc.(DFSM),CED,PGCPDN,PGDFSQM Member of Indian Dietetic Association</p>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <table style="border-collapse:collapse;margin-left:6pt; width:100%" cellspacing="0">
+        <tr style="height:41pt">
+            <td style="width:216pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s2" style="padding-top: 5pt;padding-left: 80pt;padding-right: 69pt;text-indent: 0pt;text-align: center;">Client Name</p>
+                <p class="s3" style="padding-top: 1pt;padding-left: 78pt;padding-right: 69pt;text-indent: 0pt;text-align: center;">Divyanshi</p>
+            </td>
+            <td style="width:107pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Age</p>
+                <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">22</p>
+            </td>
+            <td style="width:107pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Weight</p>
+                <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">49KG</p>
+            </td>
+            <td style="width:107pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF">
+                <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Height</p>
+                <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">157CM</p>
+            </td>
+        </tr>
+    </table>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <h3 style="padding-top: 5pt;padding-left: 6pt;text-indent: 0pt;text-align: left;">Week 1 Nutrition plan (6th to 11th March)</h3>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <table style="border-collapse:collapse;margin-left:6.5pt; width:100%" cellspacing="0">
+        <tr style="height:35pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s2" style="padding-left: 38pt;text-indent: 0pt;text-align: left;">Timings</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s2" style="padding-left: 37pt;text-indent: 0pt;text-align: left;">Meal Options</p>
+            </td>
+        </tr>
+        <tr style="height:35pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s4" style="padding-left: 38pt;text-indent: 0pt;text-align: left;">Upon waking</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s4" style="padding-left: 37pt;text-indent: 0pt;text-align: left;">250ml warm water + 5 soaked almonds</p>
+            </td>
+        </tr>
+        <tr style="height:35pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s4" style="padding-left: 38pt;text-indent: 0pt;text-align: left;">7:00 AM</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s4" style="padding-left: 37pt;text-indent: 0pt;text-align: left;">150g fruits (you can opt for papaya/ melon/ banana/ apple/ pear)</p>
+            </td>
+        </tr>
+        <tr style="height:35pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s4" style="padding-left: 38pt;text-indent: 0pt;text-align: left;">7:30-9:00 AM</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s4" style="padding-left: 37pt;text-indent: 0pt;text-align: left;">WORKOUT</p>
+            </td>
+        </tr>
+        <tr style="height:61pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s4" style="padding-top: 9pt;padding-left: 38pt;text-indent: 0pt;text-align: left;">10:00 AM</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s4" style="padding-top: 2pt;padding-left: 37pt;padding-right: 11pt;text-indent: 0pt;line-height: 114%;text-align: left;">Breakfast- 1-2 mix veg besan/ moong dal cheela with 2-3tbsp mint/ coriander/ tomato chutney OR 1 cup (150g) mix veg poha/ upma with 100ml curd OR 200ml oats porridge OR 1 mix veg omelette (use 1-2 eggs + 100g vegs)</p>
+            </td>
+        </tr>
+        <tr style="height:35pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s4" style="padding-top: 10pt;padding-left: 38pt;text-indent: 0pt;text-align: left;">12:00 PM</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s4" style="padding-top: 10pt;padding-left: 37pt;text-indent: 0pt;text-align: left;">5 nuts (walnuts/ pistas/ cashews) + 2 dates/ ﬁgs or 10 raisins</p>
+            </td>
+        </tr>
+        <tr style="height:88pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s4" style="padding-top: 7pt;padding-left: 38pt;text-indent: 0pt;text-align: left;">2:00 PM</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s4" style="padding-top: 2pt;padding-left: 37pt;padding-right: 11pt;text-indent: 0pt;line-height: 114%;text-align: left;">Lunch- Choose any one of the below options- 1 cup (100g) rice/ 2 phulka + 1 cup (100g) pulse/ paneer/ chicken/ ﬁsh curry/ dal + 1.5 cup (150g) any veg subzi + 200ml buttermilk/ 100ml curd</p>
+                <p class="s4" style="padding-left: 37pt;text-indent: 0pt;line-height: 12pt;text-align: left;">OR</p>
+                <p class="s4" style="padding-top: 1pt;padding-left: 37pt;padding-right: 11pt;text-indent: 0pt;line-height: 114%;text-align: left;">1-2 veg stuff paratha + 1 cup (100ml) dal + 1 cup (100g) veg salad + 100ml curd</p>
+            </td>
+        </tr>
+        <tr style="height:35pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s2" style="padding-left: 38pt;text-indent: 0pt;text-align: left;">5:00 PM</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s2" style="padding-left: 37pt;text-indent: 0pt;text-align: left;">150g fruits (bring in variety)</p>
+            </td>
+        </tr>
+        <tr style="height:35pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s2" style="padding-left: 38pt;text-indent: 0pt;text-align: left;">8:00 PM</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s2" style="padding-top: 3pt;padding-left: 37pt;padding-right: 11pt;text-indent: 0pt;line-height: 114%;text-align: left;">Dinner- 1-2 phulka with 1 cup (120g) veg subzi/ curry + 200ml buttermilk</p>
+            </td>
+        </tr>
+        <tr style="height:35pt">
+            <td style="width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s2" style="padding-left: 38pt;text-indent: 0pt;text-align: left;">9:30 PM</p>
+            </td>
+            <td style="width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p class="s2" style="padding-left: 37pt;text-indent: 0pt;text-align: left;">200ml warm water</p>
+            </td>
+        </tr>
+    </table>
+    <h1 style="padding-top: 32pt;padding-left: 6pt;text-indent: 0pt;text-align: left; border-bottom: 1px solid rgb(166 166 166 / 50%); padding-bottom:30px;">Guidelines</h1>
+    <p style="padding-left: 10pt;text-indent: 0pt;line-height: 1pt;text-align: left;" />
+    <h4 style="padding-top: 7pt;padding-left: 6pt;text-indent: 0pt;line-height: 114%;text-align: justify;">Since the ffirst week is observation week, the food pattern will be similar what was already followed with inclusion of fruits, vegetables and nuts. Regular updates on the whats app group is important. Appreciate your understanding and time. Here
+        are a few guidelines to keep in mind while following the plan:</h4>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <ul id="l1">
+        <li data-list-text="●">
+            <p style="padding-top: 10pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">Daily inclusion of 2.5-3 liters of water, 45-60 minutes of exercise and 7-8 hours of sleep is really important.</p>
+        </li>
+        <li data-list-text="●">
+            <p class="s5" style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;text-align: left;">Include fruits as pre workout snacks and direcly have breakfast post workout.</p>
+        </li>
+        <li data-list-text="●">
+            <p class="s5" style="padding-top: 7pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">For poha and upma you can include a cup of curd for protein. For porridge milk can be included. Since besan and moong dal are already are a protein source, you can have it with chutney.</p>
+        </li>
+        <li data-list-text="●">
+            <p class="s6" style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;text-align: left;">Always opt for natural sources of protein and avoid commercial products.</p>
+        </li>
+        <li data-list-text="●">
+            <p style="padding-top: 7pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">Avoid repeating foods from same food group and do not overdo one single food in a day. <span style=" color: #00F;">Like for example, if you include eggs in the morning, try to avoid it with lunch.</span></p>
+        </li>
+        <li data-list-text="●">
+            <p class="s6" style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">If there is constipation, you can include soaked raisins along with warm water in the morning. Raisins need to be soaked overnight and you can consume upon waking. You can discard soaked water.</p>
+        </li>
+        <li data-list-text="●">
+            <p style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">Everything mentioned on the plan are for overall nourishment, so make sure not to skip especialy fruits, vegetables and nuts. <span style=" color: #00F;">Eat seasonal and bring in a lot of variety for foods for diversity in nutrients.</span></p>
+        </li>
+        <li data-list-text="●">
+            <p class="s5" style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;text-align: left;">For oats porridge , you can use 3tbsp oats, cook it in water and then add milk.</p>
+        </li>
+        <li data-list-text="●">
+            <p class="s6" style="padding-top: 7pt;padding-left: 44pt;text-indent: -18pt;text-align: left;">Add 1/4-1/2 tsp ghee with the meals for better gut health.</p>
+        </li>
+        <li data-list-text="●">
+            <p class="s6" style="padding-top: 7pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">Daily addition of curd and buttermilk along with meals is very important for probiotics and better gut health. So, do not miss on them.</p>
+        </li>
+        <li data-list-text="●">
+            <p style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;text-align: left;">Try avoiding sugar and use alternatives like jaggery, brown sugar or pure honey.</p>
+        </li>
+        <li data-list-text="●">
+            <p style="padding-top: 7pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">It would be better to replace white rice with brown rice, quinoa or millets, if it is suiting you. Use whole wheat ﬂour and avoid maida.</p>
+        </li>
+        <li data-list-text="●">
+            <p style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;text-align: left;">Avoid any processed, sugary or junk foods especially brought from outside.</p>
+        </li>
+        <li data-list-text="●">
+            <p style="padding-top: 7pt;padding-left: 44pt;text-indent: -18pt;text-align: left;">Please do replace reﬁned oils with healthy ﬁltered, wood pressed or cold pressed oils.</p>
+        </li>
+        <li data-list-text="●">
+            <p style="padding-top: 7pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">Use simple cooking methods and avoid deep frying or cooking with heavy ingredients and masalas.</p>
+        </li>
+        <li data-list-text="●">
+            <p style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">Have an early G a light dinner. In case of any delay, please try to complete 2-3 hours before sleeping.</p>
+        </li>
+        <li data-list-text="●">
+            <p style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">Practice mindful eating and chew the food well. Also focus on eating small portions in frequent intervals for better digestion.</p>
+        </li>
+        <li data-list-text="●">
+            <p class="s6" style="padding-top: 5pt;padding-left: 44pt;text-indent: -18pt;line-height: 114%;text-align: left;">Observe closely for any food intolerances, allergies or any form of digestive discomfort and update it on the whats app group.</p>
+        </li>
+    </ul>
 </body>
 
 </html>

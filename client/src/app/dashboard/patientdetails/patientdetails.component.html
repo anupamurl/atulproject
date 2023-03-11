@@ -69,11 +69,7 @@
 
         </article>
 
-        <article *ngIf="gPdf">
 
-            <button>  <a href="http://localhost:8080/generateReport/{{userDetails._id}}">  Generate PDF </a>        </button>
-
-        </article>
 
         <div> </div>
 
@@ -96,6 +92,8 @@
         <div class="actionbox">
 
             <button (click)="activePlan( item._id )" *ngIf="!activePlanID">  Continue </button>
+            <button *ngIf="activePlanID">  <a href="http://localhost:8080/generateReport/{{userDetails._id}}" >  Generate PDF </a>        </button>
+
             <button (click)="activePlanID=null" *ngIf="activePlanID">  Back </button>
 
 
