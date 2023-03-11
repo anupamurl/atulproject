@@ -27,6 +27,7 @@ export class PatientdetailsComponent {
   tab: number = 0;
   activePlanID : any =null;
   mealList : any = [];
+  guideList : any = []
 
   meal: any = {
     mealhtml: "",
@@ -87,7 +88,7 @@ export class PatientdetailsComponent {
     }
     this.PatientService.addplandate(data).subscribe(($val)=>{ 
 
-      console.log($val)
+     
       this.getPatientByID()
 
 
@@ -114,6 +115,7 @@ export class PatientdetailsComponent {
 
     this.PatientService.getPatientByID(this.$ID).subscribe((data) => {
       this.userDetails = data; 
+      this.activePlan ( this.activePlanID)
     })
 
 
@@ -123,7 +125,8 @@ export class PatientdetailsComponent {
 
     this.PatientService.deletePlan(this.$ID,$item._id,    this.activePlanID  ).subscribe((data) => {
       this.getPatientByID()
-      console.log(data)
+   
+ 
     })
 
 
@@ -131,14 +134,15 @@ export class PatientdetailsComponent {
 
   deleteguide($item:any){
 
-    this.PatientService.deleteguide(this.$ID,$item._id).subscribe((data) => {
+    this.PatientService.deleteguide(this.$ID,$item._id, this.activePlanID  ).subscribe((data) => {
       this.getPatientByID()
-      console.log(data)
+ 
+
     })
 
 
   }
-
+  
 
   activePlan ($ID:any) { 
 
@@ -154,7 +158,21 @@ export class PatientdetailsComponent {
 
     }) 
     
-    this.mealList = (this.mealList.length) ? this.mealList[0] : []
+    this.mealList = (this.mealList.length) ? this.mealList[0] : [];
+
+
+
+    this.guideList = this.userDetails.plandate.filter((node:any)=>{
+
+      return node._id == this.activePlanID
+    }).map((n:any)=>{
+
+      return n = n.guideline
+
+    }) 
+
+    this.guideList = (this.guideList.length) ? this.guideList[0] : [];
+
  
 
   }
@@ -185,14 +203,12 @@ export class PatientdetailsComponent {
 addGuideLIne() {
 
  
-  this.userDetails.guideline.push( 
-    { guidehtml :     this.guide.guidehtml  }
-
-    ) 
+ 
 
   let data = { 
     id : this.userDetails._id,
-    guideline : this.userDetails.guideline
+    guideline : this.guide.guidehtml,
+    plandate :  this.activePlanID 
   }
 
   this.PatientService.addGuide(data).subscribe(($val)=>{ 

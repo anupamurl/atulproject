@@ -126,28 +126,20 @@
                 <article>
                     <input type="time" [(ngModel)]="meal.time">
                     <select [(ngModel)]="meal.type"> 
-
                             <option> Breakfast     </option>         
                             <option> Lunch   </option>
                             <option> Snacks   </option>
                             <option> Dinner   </option>
-
-</select>
-
+                         </select>
                 </article>
-
                 <button (click)="addMeal()">  Add  This</button>
-
             </div>
 
 
             <ul class="mealList">
-
                 <li *ngFor="let item of mealList;  let i = index ">
                     <span class="time">   {{item.time}} </span>
                     <div class="hmtlbox" [innerHTML]="item.mealhtml | SanitizeHtmlPipe "></div>
-
-
                     <div class="action">
                         <a href="javascript:;"> Edit </a>
                         <a href="javascript:;" (click)="deleteMplan(item)"> Delete </a>
@@ -162,21 +154,17 @@
         <div class="guideLine" [hidden]="tab==0">
             <div class="NgxEditor__Wrapper">
                 <ngx-editor-menu [editor]="guideeditor"> </ngx-editor-menu>
-
                 <ngx-editor [editor]="guideeditor" [(ngModel)]="guide.guidehtml" [disabled]="false" [placeholder]="'Typ Guideline Options'"></ngx-editor>
-
             </div>
             <div class="formBox">
                 <button (click)="addGuideLIne()">Add  This</button>
             </div>
             <ul class="mealList">
-                <li *ngFor="let item of userDetails.guideline">
+                <li *ngFor="let item of guideList">
                     <div class="hmtlbox" [innerHTML]="item.guidehtml | SanitizeHtmlPipe "></div>
-
                     <div class="action">
                         <a href="javascript:;"> Edit </a>
                         <a href="javascript:;" (click)="deleteguide(item)"> Delete </a>
-
                     </div>
                 </li>
             </ul>

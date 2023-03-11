@@ -57,11 +57,12 @@ export class PatientService {
   }
   
 
-  deleteguide($pid:any,$itemId : any){
+  deleteguide($pid:any,$itemId : any , activePlanID : any){
 
     let $data =  { 
      'pid' : $pid,
-     'itemId' : $itemId
+     'itemId' : $itemId,
+     'plandate' :    activePlanID ,
     }
     return this.http.post(AUTH_API+ 'deleteguide', $data );
 

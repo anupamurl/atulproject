@@ -82,16 +82,21 @@ exports.addMeal = (req, res) => {
 exports.addGuide = (req, res) => {
     let id = req.body.id;
     let guideline = req.body.guideline;
+    let plandate = req.body.plandate;
+
+    console.log(req.body)
 
 
-    Patient.findByIdAndUpdate(id, { guideline: guideline }, (err) => {
-        if (err) {
-            res.status(500).send({ message: err });
-            return;
-        }
-        res.send({ message: "guideline was added successfully!" });
-    })
+    Patient.findOneAndUpdate({ _id: id, "plandate._id": plandate }, { "$push": { 'plandate.$.guideline': { guidehtml: guideline } } },
+        (err, data) => {
+            if (err) {
+                res.status(500).send({ message: err });
+                return;
+            }
+            res.send({ message: "guideline was added successfully!" });
+        })
 };
+
 
 exports.addplandate = (req, res) => {
     let id = req.body.id;
@@ -126,7 +131,9 @@ exports.deletelan = (req, res) => {
 exports.deleteguide = (req, res) => {
     let pid = req.body.pid;
     let itemId = req.body.itemId;
-    Patient.findOneAndUpdate({ _id: pid }, { $push: { guideline: { _id: itemId } } }, { new: true }).exec((err) => {
+    let plandate = req.body.plandate;
+
+    Patient.findOneAndUpdate({ _id: pid, 'plandate._id': plandate }, { $pull: { 'plandate.$.guideline': { _id: itemId } } }, { new: true }).exec((err) => {
         if (err) {
             res.send(err)
         } else {
