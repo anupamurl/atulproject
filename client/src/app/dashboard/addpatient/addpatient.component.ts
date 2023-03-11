@@ -26,7 +26,7 @@ export class AddpatientComponent {
 
   profileForm =  new FormGroup({
     name: new FormControl('' , Validators.required),
-    phone: new FormControl(''),
+    phone:  new FormControl('' , Validators.required),
     email: new FormControl(''),
     age: new FormControl(''),
     weight: new FormControl(''),
