@@ -137,8 +137,8 @@ app.get("/generateReport/:id/:planid", (req, res) => {
 
         if (plandate && plandate.length) {
 
-            info['start'] = plandate[0].start
-            info['end'] = plandate[0].end
+            info['start'] = plandate[0].start.toLocaleString('en-us',{ day : 'numeric', month:'short', year:'numeric'   })
+            info['end'] = plandate[0].end.toLocaleString('en-us',{ day : 'numeric', month:'short', year:'numeric'   })
             info['mealplan'] = plandate[0].mealplan
             info['guideline'] = plandate[0].guideline
 

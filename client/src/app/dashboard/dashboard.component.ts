@@ -59,6 +59,27 @@ export class DashboardComponent {
   }
 
 
+  detailPage($id:any){
+
+
+    this.allPatinet.map((node:any)=>{
+
+       if (node._id== $id){
+      node.active = true
+      }
+      else{
+        node.active = false
+      }
+    })
+
+ 
+
+    this.router.navigate(['dashboard/patientdetail' , $id ]);
+
+
+  }
+
+
 getAllPatient(){
 
   this.PatientService.getPatinietList().subscribe((data)=>{

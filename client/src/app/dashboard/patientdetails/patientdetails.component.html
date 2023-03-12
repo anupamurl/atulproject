@@ -123,8 +123,8 @@
             <div class="formBox">
                 <article>
                     <input type="time" [(ngModel)]="meal.time">
-                    <select [(ngModel)]="meal.type"> 
-                            <option> Breakfast     </option>         
+                    <select [(ngModel)]="meal.type">
+                            <option> Breakfast     </option>
                             <option> Lunch   </option>
                             <option> Snacks   </option>
                             <option> Dinner   </option>
@@ -155,13 +155,16 @@
                 <ngx-editor [editor]="guideeditor" [(ngModel)]="guide.guidehtml" [disabled]="false" [placeholder]="'Typ Guideline Options'"></ngx-editor>
             </div>
             <div class="formBox">
-                <button (click)="addGuideLIne()">Add  This</button>
+
+                <button (click)="updateGuideLIne()" *ngIf="updateGuideID">Update  This</button>
+                <button (click)="addGuideLIne()" *ngIf="!updateGuideID">Add  This</button>
+
             </div>
             <ul class="mealList">
                 <li *ngFor="let item of guideList">
                     <div class="hmtlbox" [innerHTML]="item.guidehtml | SanitizeHtmlPipe "></div>
                     <div class="action">
-                        <a href="javascript:;"> Edit </a>
+                        <a href="javascript:;" (click)="editGuide(item)"  > Edit </a>
                         <a href="javascript:;" (click)="deleteguide(item)"> Delete </a>
                     </div>
                 </li>

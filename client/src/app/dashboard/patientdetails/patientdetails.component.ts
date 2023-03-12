@@ -9,14 +9,12 @@ const today = new Date();
 const month = today.getMonth();
 const year = today.getFullYear();
 
-
 @Component({
   selector: 'app-patientdetails',
   templateUrl: './patientdetails.component.html',
-  styleUrls: ['./patientdetails.component.css']
+  styleUrls: ['./patientdetails.component.css'],
 })
 export class PatientdetailsComponent {
-
   editor: any;
   guideeditor: any;
   mealhtml: any;
@@ -25,24 +23,22 @@ export class PatientdetailsComponent {
   $ID: any;
   gPdf: boolean = false;
   tab: number = 0;
-  activePlanID : any =null;
-  mealList : any = [];
-  guideList : any = []
+  activePlanID: any = null;
+  mealList: any = [];
+  guideList: any = [];
+  updateGuideID : any = null;
 
   meal: any = {
-    mealhtml: "",
+    mealhtml: '',
     time: '12:00',
-    type: "Breakfast"
-  }
+    type: 'Breakfast',
+  };
 
-  guide: any = {  
+  guide: any = {
+    guidehtml: '',
+  };
 
-    guidehtml: "",
-  }
-
-  masterMeal : any = { ... this.meal }
-
-
+  masterMeal: any = { ...this.meal };
 
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
@@ -52,18 +48,14 @@ export class PatientdetailsComponent {
   constructor(
     private PatientService: PatientService,
     private SharedseriveService: SharedseriveService,
-    private _Activatedroute: ActivatedRoute ,
+    private _Activatedroute: ActivatedRoute,
     private sanitizer: DomSanitizer
   ) {
-
     this._Activatedroute.paramMap.subscribe((params) => {
       console.log(params);
       this.$ID = params.get('id');
-      this.getPatientByID()
+      this.getPatientByID();
     });
-
-
-
   }
 
   ngOnInit(): void {
@@ -76,176 +68,130 @@ export class PatientdetailsComponent {
     this.editor.destroy();
   }
 
-
-
   createDietPlan() {
+    console.log(this.range.value);
 
-    console.log(this.range.value)
-
-    let data = { 
-      id : this.userDetails._id,
-      plandate : this.range.value
-    }
-    this.PatientService.addplandate(data).subscribe(($val)=>{ 
-
-     
-      this.getPatientByID()
-
-
-
-    })
+    let data = {
+      id: this.userDetails._id,
+      plandate: this.range.value,
+    };
+    this.PatientService.addplandate(data).subscribe(($val) => {
+      this.getPatientByID();
+    });
 
     //this.gPdf = true
-
-
   }
 
   tabChange($val: number) {
-
-
     this.tab = $val;
-
-
   }
 
   getPatientByID() {
-
     this.$ID = this._Activatedroute.snapshot.paramMap.get('id');
 
-
     this.PatientService.getPatientByID(this.$ID).subscribe((data) => {
-      this.userDetails = data; 
-      this.activePlan ( this.activePlanID)
-    })
-
-
+      this.userDetails = data;
+      this.activePlan(this.activePlanID);
+    });
   }
 
+  deleteDitePlan($id: any) {
+    console.log($id);
+    console.log(this.$ID);
 
-  deleteDitePlan($id:any){
-
-    console.log($id)
-    console.log(this.$ID)
-
-    this.PatientService.deletediteplan(this.$ID, $id  ).subscribe((data) => {
-      this.getPatientByID()
-   
- 
-    })
-
-
-
-
-
+    this.PatientService.deletediteplan(this.$ID, $id).subscribe((data) => {
+      this.getPatientByID();
+    });
   }
 
-  deleteMplan($item:any){
-
-    this.PatientService.deletePlan(this.$ID,$item._id,    this.activePlanID  ).subscribe((data) => {
-      this.getPatientByID()
-   
- 
-    })
-
-
+  deleteMplan($item: any) {
+    this.PatientService.deletePlan(
+      this.$ID,
+      $item._id,
+      this.activePlanID
+    ).subscribe((data) => {
+      this.getPatientByID();
+    });
   }
 
-  deleteguide($item:any){
-
-    this.PatientService.deleteguide(this.$ID,$item._id, this.activePlanID  ).subscribe((data) => {
-      this.getPatientByID()
- 
-
-    })
-
-
-  }
-  
-
-  activePlan ($ID:any) { 
-
-    this.activePlanID = $ID
-
-
-   this.mealList =  this.userDetails.plandate.filter((node:any)=>{
-
-      return node._id == this.activePlanID
-    }).map((n:any)=>{
-
-      return n = n.mealplan
-
-    }) 
-    
-    this.mealList = (this.mealList.length) ? this.mealList[0] : [];
-
-
-
-    this.guideList = this.userDetails.plandate.filter((node:any)=>{
-
-      return node._id == this.activePlanID
-    }).map((n:any)=>{
-
-      return n = n.guideline
-
-    }) 
-
-    this.guideList = (this.guideList.length) ? this.guideList[0] : [];
-
- 
-
+  deleteguide($item: any) {
+    this.PatientService.deleteguide(
+      this.$ID,
+      $item._id,
+      this.activePlanID
+    ).subscribe((data) => {
+      this.getPatientByID();
+    });
   }
 
-  
+  activePlan($ID: any) {
+    this.activePlanID = $ID;
+
+    this.mealList = this.userDetails.plandate
+      .filter((node: any) => {
+        return node._id == this.activePlanID;
+      })
+      .map((n: any) => {
+        return (n = n.mealplan);
+      });
+
+    this.mealList = this.mealList.length ? this.mealList[0] : [];
+
+    this.guideList = this.userDetails.plandate
+      .filter((node: any) => {
+        return node._id == this.activePlanID;
+      })
+      .map((n: any) => {
+        return (n = n.guideline);
+      });
+
+    this.guideList = this.guideList.length ? this.guideList[0] : [];
+  }
+
   addMeal() {
-
- 
-    let data = { 
-      id : this.userDetails._id,
-      plandate :  this.activePlanID ,
-      mealplan :  this.meal
-    }
-    this.PatientService.addMeal(data).subscribe(($val)=>{ 
-      this.getPatientByID()
-      this.meal ={
-        mealhtml: "",
+    let data = {
+      id: this.userDetails._id,
+      plandate: this.activePlanID,
+      mealplan: this.meal,
+    };
+    this.PatientService.addMeal(data).subscribe(($val) => {
+      this.getPatientByID();
+      this.meal = {
+        mealhtml: '',
         time: '12:00',
-        type: "Breakfast"
-      }
-    
-    
-    })
+        type: 'Breakfast',
+      };
+    });
+  }
+
+  editGuide(item: any) {
+
+
+    console.log(item)
+    this.guide.guidehtml = item.guidehtml
+    this.updateGuideID = item._id;
   }
 
 
-  
-addGuideLIne() {
+  updateGuideLIne(){
+    let data = {
+      id: this.userDetails._id,
+      guideline: this.guide.guidehtml,
+      plandate: this.activePlanID,
+      updateGuideID : this.updateGuideID
+    };
 
- 
- 
 
-  let data = { 
-    id : this.userDetails._id,
-    guideline : this.guide.guidehtml,
-    plandate :  this.activePlanID 
   }
-
-  this.PatientService.addGuide(data).subscribe(($val)=>{ 
-    this.guide.guidehtml = ""
-    this.getPatientByID()
-     
-  })
-
-
-  
-  // this.guide.guidehtml = "";
-  // this.getPatientByID()
-
-  
- }
-
+  addGuideLIne() {
+    let data = {
+      id: this.userDetails._id,
+      guideline: this.guide.guidehtml,
+      plandate: this.activePlanID,
+    };
+    this.PatientService.addGuide(data).subscribe(($val) => {
+      this.guide.guidehtml = '';
+      this.getPatientByID();
+    });
+  }
 }
- 
-
-
- 
-

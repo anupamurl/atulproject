@@ -19,16 +19,17 @@
         <ul>
 
 
-            <li *ngFor="let patient of allPatinet">
+            <li *ngFor="let patient of allPatinet"  (click)="detailPage(patient._id)" [ngClass]="{ 'active' : patient.active}"   >
 
                 <div class="imgbox">
                     <b>      {{patient.title }}    </b>
                 </div>
 
                 <aside>
-                    <a [routerLink]="['patientdetail', patient._id]"> {{patient.name}} </a>
+                    <a   > {{patient.name}} </a>
                     <span> {{ patient.phone}} </span>
                 </aside>
+                <div class="clearfix"></div>
             </li>
 
         </ul>
