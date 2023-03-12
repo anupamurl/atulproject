@@ -115,16 +115,38 @@ function decodeEntities(encodedString) {
 }
 
 
-app.get("/generateReport/:id", (req, res) => {
+app.get("/generateReport/:id/:planid", (req, res) => {
 
 
     var query = req.params;
 
 
 
+
+
     Patient.findById(query.id, function(err, users) {
 
-        ejs.renderFile((path.join(__dirname, './views/', "report-template.ejs")), { users: users }, (err, data) => {
+        let info = {...users.toObject() }
+
+
+        let plandate = info.plandate.filter((node) => {
+
+            return node._id == query.planid
+
+        })
+
+        if (plandate && plandate.length) {
+
+            info['start'] = plandate[0].start
+            info['end'] = plandate[0].end
+            info['mealplan'] = plandate[0].mealplan
+            info['guideline'] = plandate[0].guideline
+
+        }
+
+
+
+        ejs.renderFile((path.join(__dirname, './views/', "report-template.ejs")), { users: info }, (err, data) => {
             if (err) {
                 res.send(err);
             } else {

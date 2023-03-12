@@ -92,7 +92,7 @@
         <div class="actionbox">
 
             <button (click)="activePlan( item._id )" *ngIf="!activePlanID">  Continue </button>
-            <button *ngIf="activePlanID">  <a href="http://localhost:8080/generateReport/{{userDetails._id}}" >  Generate PDF </a>        </button>
+            <button *ngIf="activePlanID">  <a href="http://localhost:8080/generateReport/{{userDetails._id}}/{{item._id}}" >  Generate PDF </a>        </button>
 
             <button (click)="activePlanID=null" *ngIf="activePlanID">  Back </button>
 
@@ -105,7 +105,7 @@
     </div>
 
 
-    <div class="adddietbox">
+    <div class="adddietbox" [hidden]="!activePlanID">
         <ul class="tabPanel">
             <li>
                 <a href="javascript:;" [ngClass]="{ 'active': tab==0 }" (click)="tabChange(0)">    Create Meal Plan </a>

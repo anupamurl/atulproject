@@ -270,3 +270,9 @@
             border: none;
             margin-right: 10px;
         }
+        
+        .mat-card div.actionbox button a {
+            text-decoration: none;
+            color: white;
+            ;
+        }
