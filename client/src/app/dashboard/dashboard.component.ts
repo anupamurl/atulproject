@@ -90,6 +90,12 @@ getAllPatient(){
     this.allPatinetMaster = this.allPatinet;
 
 
+    if(this.allPatinet && this.allPatinet.length){
+      this.detailPage(this.allPatinet[0]._id)
+    }
+    
+
+
 
   })
 

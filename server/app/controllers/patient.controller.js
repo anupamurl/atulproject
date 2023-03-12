@@ -97,6 +97,26 @@ exports.addGuide = (req, res) => {
         })
 };
 
+exports.updateGuide = (req, res) => {
+    let id = req.body.id;
+    let guideline = req.body.guideline;
+    let plandate = req.body.plandate;
+    let updateGuideID = req.body.updateGuideID
+    Patient.findOneAndUpdate({ _id: id, "plandate._id": plandate }, { "$set": { 'plandate.$.guideline.$[outer].guidehtml': guideline } }, {
+            arrayFilters: [
+                { "outer._id": updateGuideID }
+            ]
+        },
+        (err, data) => {
+            if (err) {
+                res.status(500).send({ message: err });
+                return;
+            }
+            res.send({ message: "guideline was update successfully!" });
+        })
+};
+
+
 
 exports.addplandate = (req, res) => {
     let id = req.body.id;

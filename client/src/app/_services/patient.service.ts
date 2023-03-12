@@ -39,6 +39,15 @@ export class PatientService {
   }
 
 
+  updateaddGuide($data:any){
+    return this.http.post(AUTH_API+ 'updateGuide', $data );
+
+  }
+
+
+
+
+
   addplandate($data:any){
     return this.http.post(AUTH_API+ 'addplandate', $data );
 

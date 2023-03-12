@@ -26,7 +26,7 @@ export class PatientdetailsComponent {
   activePlanID: any = null;
   mealList: any = [];
   guideList: any = [];
-  updateGuideID : any = null;
+  updateGuideID: any = null;
 
   meal: any = {
     mealhtml: '',
@@ -173,13 +173,20 @@ export class PatientdetailsComponent {
   }
 
 
-  updateGuideLIne(){
+  updateGuideLIne() {
     let data = {
       id: this.userDetails._id,
       guideline: this.guide.guidehtml,
       plandate: this.activePlanID,
-      updateGuideID : this.updateGuideID
+      updateGuideID: this.updateGuideID
     };
+
+
+    this.PatientService.updateaddGuide(data).subscribe(($val) => {
+      this.guide.guidehtml = '';
+      this.getPatientByID();
+      this.updateGuideID = null;
+    });
 
 
   }
