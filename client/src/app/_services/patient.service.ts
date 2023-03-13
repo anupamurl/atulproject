@@ -44,6 +44,11 @@ export class PatientService {
 
   }
 
+  updatePlan($data:any){
+    return this.http.post(AUTH_API+ 'updateplan', $data );
+
+  }
+
 
 
 

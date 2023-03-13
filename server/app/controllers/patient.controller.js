@@ -117,6 +117,36 @@ exports.updateGuide = (req, res) => {
 };
 
 
+exports.updateplan = (req, res) => {
+    let id = req.body.pid;
+    let guideline = req.body.guideline;
+    let plandate = req.body.plandate;
+    let updateGuideID = req.body._id;
+    Patient.findOneAndUpdate({ _id: id, "plandate._id": plandate }, {
+            "$set": {
+                'plandate.$.mealplan.$[outer].mealhtml': req.body.mealhtml,
+                'plandate.$.mealplan.$[outer].time': req.body.time,
+                'plandate.$.mealplan.$[outer].type': req.body.type,
+
+            }
+        }, {
+            arrayFilters: [
+                { "outer._id": updateGuideID }
+            ]
+        },
+        (err, data) => {
+            if (err) {
+                res.status(500).send({ message: err });
+                return;
+            }
+            res.send({ message: "mealplan was update successfully!" });
+        })
+};
+
+
+
+
+
 
 exports.addplandate = (req, res) => {
     let id = req.body.id;

@@ -130,7 +130,9 @@
                             <option> Dinner   </option>
                          </select>
                 </article>
-                <button (click)="addMeal()">  Add  This</button>
+                <button (click)="addMeal()" *ngIf="!this.meal._id">  Add  This</button>
+                <button (click)="editMeal()" *ngIf="this.meal._id">  Edit</button>
+
             </div>
 
 
@@ -139,7 +141,7 @@
                     <span class="time">   {{item.time}} </span>
                     <div class="hmtlbox" [innerHTML]="item.mealhtml | SanitizeHtmlPipe "></div>
                     <div class="action">
-                        <a href="javascript:;"> Edit </a>
+                        <a href="javascript:;" (click)="editMealPlan(item)"> Edit </a>
                         <a href="javascript:;" (click)="deleteMplan(item)"> Delete </a>
 
                     </div>
@@ -164,7 +166,7 @@
                 <li *ngFor="let item of guideList">
                     <div class="hmtlbox" [innerHTML]="item.guidehtml | SanitizeHtmlPipe "></div>
                     <div class="action">
-                        <a href="javascript:;" (click)="editGuide(item)"  > Edit </a>
+                        <a href="javascript:;" (click)="editGuide(item)"> Edit </a>
                         <a href="javascript:;" (click)="deleteguide(item)"> Delete </a>
                     </div>
                 </li>

@@ -166,8 +166,7 @@ export class PatientdetailsComponent {
 
   editGuide(item: any) {
 
-
-    console.log(item)
+ 
     this.guide.guidehtml = item.guidehtml
     this.updateGuideID = item._id;
   }
@@ -189,6 +188,29 @@ export class PatientdetailsComponent {
     });
 
 
+  }
+
+  editMealPlan(item:any){
+  
+ 
+    this.meal = { ... item }
+
+
+
+  }
+
+  editMeal(){   
+    this.meal['pid']  = this.userDetails._id;
+    this.meal['plandate']  = this.activePlanID;  
+    this.PatientService.updatePlan(this.meal).subscribe(($val) => {
+      this.meal =  {
+        mealhtml: '',
+        time: '12:00',
+        type: 'Breakfast',
+      };
+      this.getPatientByID();
+      this.updateGuideID = null;
+    });
   }
   addGuideLIne() {
     let data = {
