@@ -16,7 +16,7 @@ let path = require("path");
 
 
 var corsOptions = {
-    origin: ["http://localhost:4200", "http://localhost"],
+    origin: ["http://localhost:4200" ],
     credentials: true
 }
 
@@ -40,13 +40,13 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-    .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+    .connect(`mongodb+srv://anupam:sqd6p4XNrImjejGb@cluster0.85nq5yn.mongodb.net/?retryWrites=true&w=majority`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
     .then(() => {
         console.log("Successfully connect to MongoDB.");
-        initial();
+        
     })
     .catch(err => {
         console.error("Connection error", err);
@@ -54,10 +54,7 @@ db.mongoose
     });
 
 // simple route
-app.get("/", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
-});
-
+ 
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
@@ -147,6 +144,20 @@ app.get("/generateReport/:id/:planid", (req, res) => {
 })
 
 
+app.get('/*', (req, res) => {
+    var options = {
+        root: path.join(__dirname) + "/public/"
+    };
+
+    var fileName = 'index.html';
+    res.sendFile(fileName, options, function(err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('Sent:', fileName);
+        }
+    });
+});
 
 
 // set port, listen for requests
@@ -155,38 +166,4 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
 
-function initial() {
-    Role.estimatedDocumentCount((err, count) => {
-        if (!err && count === 0) {
-            new Role({
-                name: "user"
-            }).save(err => {
-                if (err) {
-                    console.log("error", err);
-                }
-
-                console.log("added 'user' to roles collection");
-            });
-
-            new Role({
-                name: "moderator"
-            }).save(err => {
-                if (err) {
-                    console.log("error", err);
-                }
-
-                console.log("added 'moderator' to roles collection");
-            });
-
-            new Role({
-                name: "admin"
-            }).save(err => {
-                if (err) {
-                    console.log("error", err);
-                }
-
-                console.log("added 'admin' to roles collection");
-            });
-        }
-    });
-}
+ 
