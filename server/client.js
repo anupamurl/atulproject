@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 var path = require('path');
-const PORT = 3000;
+const PORT = 3001;
 
 app.use(express.static('public'))
 app.get('/*', (req, res) => {
