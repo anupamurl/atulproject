@@ -142,28 +142,13 @@ app.get("/generateReport/:id/:planid", (req, res) => {
 
 
 })
+ 
+ 
 
-
-app.get('/*', (req, res) => {
-    var options = {
-        root: path.join(__dirname) + "/public/"
-    };
-
-    var fileName = 'index.html';
-    res.sendFile(fileName, options, function(err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('Sent:', fileName);
-        }
-    });
-});
-
-
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
+  
+ let PORT = 8080;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
+    console.log(`client is running on port ${PORT}.`);
 });
 
  

@@ -10,5 +10,5 @@ export class SharedseriveService {
   patiendAdd : EventEmitter<any> =   new EventEmitter();
 
 
-  
+
 }
