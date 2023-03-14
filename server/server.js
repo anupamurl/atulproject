@@ -16,7 +16,7 @@ let path = require("path");
 
 
 var corsOptions = {
-    origin: ["http://localhost:4200" ],
+    origin: ["http://localhost:4200" ,  "http://localhost"  ],
     credentials: true
 }
 
@@ -144,8 +144,7 @@ app.get("/generateReport/:id/:planid", (req, res) => {
 })
  
  
-
-  
+ 
  let PORT = 8080;
 app.listen(PORT, () => {
     console.log(`client is running on port ${PORT}.`);
