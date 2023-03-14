@@ -1,12 +1,12 @@
- 
+
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'http://localhost:8080/api/patient/';
 
- 
+const AUTH_API = `http://${window.location.hostname}:8080/api/patient/`;
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,13 +17,13 @@ const httpOptions = {
 })
 export class PatientService {
   constructor(private http: HttpClient) {}
-  getPatinietList() :Observable<any>  { 
+  getPatinietList() :Observable<any>  {
     return this.http.get(AUTH_API+ 'getallpatient');
   }
-  addPatiniet($data:any) :Observable<any>  { 
+  addPatiniet($data:any) :Observable<any>  {
     return this.http.post(AUTH_API+ 'addpatient', $data );
   }
-  getPatientByID($id:any):Observable<any>  { 
+  getPatientByID($id:any):Observable<any>  {
     console.log($id)
     return this.http.post(AUTH_API+ 'getPatientbyid', {id : $id } );
   }
@@ -64,22 +64,22 @@ export class PatientService {
     return this.http.post(AUTH_API+ 'addplandate', $data );
 
   }
-  
+
   deletediteplan($pid:any,   activePlanID : any ){
 
-    let $data =  { 
-     'pid' : $pid, 
+    let $data =  {
+     'pid' : $pid,
     'plandate' :    activePlanID ,
     }
 
     return this.http.post(AUTH_API+ 'deletediteplan', $data );
 
   }
-  
+
 
   deletePlan($pid:any,$itemId : any, activePlanID : any ){
 
-    let $data =  { 
+    let $data =  {
      'pid' : $pid,
      'itemId' : $itemId,
     'plandate' :    activePlanID ,
@@ -87,11 +87,11 @@ export class PatientService {
     return this.http.post(AUTH_API+ 'deletelan', $data );
 
   }
-  
+
 
   deleteguide($pid:any,$itemId : any , activePlanID : any){
 
-    let $data =  { 
+    let $data =  {
      'pid' : $pid,
      'itemId' : $itemId,
      'plandate' :    activePlanID ,
@@ -101,8 +101,8 @@ export class PatientService {
   }
 
   deleteUser($pid:any ){
-    let $data =  { 
-     'pid' : $pid   
+    let $data =  {
+     'pid' : $pid
     }
     return this.http.post(AUTH_API+ 'deleteuser', $data );
   }
