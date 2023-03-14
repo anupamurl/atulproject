@@ -15,12 +15,12 @@ let path = require("path");
 
 
 
-var corsOptions = {
-    origin: ["http://localhost:4200", "http://localhost", "http://localhost:3000", "http://localhost:3001" ],
-    credentials: true
-}
+// var corsOptions = {
+//     origin: ["http://localhost:4200", "http://localhost", "http://localhost:3000", "http://localhost:3001" ],
+//     credentials: true
+// }
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(express.json());
