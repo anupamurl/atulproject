@@ -155,6 +155,8 @@ export class PatientdetailsComponent {
         this.PatientService.deleteUser(
           this.$ID         
         ).subscribe((data) => {
+
+          this.SharedseriveService.patiendAdd.emit()
  
           this.router.navigate(['dashboard' ]);
         });

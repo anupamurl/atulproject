@@ -93,12 +93,13 @@
             transition: background .5s;
         }
         
+        .formBox button[disabled],
         .adddiet button[disabled] {
             background: #cccccc;
             color: #666666;
         }
         
-        .adddiet button a {
+        .formBox .adddiet button a {
             text-decoration: none;
             color: white;
         }

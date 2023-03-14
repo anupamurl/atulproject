@@ -138,7 +138,7 @@
                             <option> Dinner   </option>
                          </select>
                 </article>
-                <button (click)="addMeal()" *ngIf="!this.meal._id">  Add  This</button>
+                <button (click)="addMeal()" *ngIf="!this.meal._id" [disabled]="!meal.mealhtml">  Add  This</button>
                 <button (click)="editMeal()" *ngIf="this.meal._id">  Edit</button>
 
             </div>
@@ -167,7 +167,7 @@
             <div class="formBox">
 
                 <button (click)="updateGuideLIne()" *ngIf="updateGuideID">Update  This</button>
-                <button (click)="addGuideLIne()" *ngIf="!updateGuideID">Add  This</button>
+                <button (click)="addGuideLIne()" [disabled]="!guide.guidehtml" *ngIf="!updateGuideID">Add  This</button>
 
             </div>
             <ul class="mealList">

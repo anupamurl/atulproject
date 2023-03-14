@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { StorageService } from '../_services/storage.service';
 import { AuthService } from '../_services/auth.service';
@@ -9,7 +9,8 @@ import { EventBusService } from '../_shared/event-bus.service';
 import {
   CanActivate, Router,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot
+  RouterStateSnapshot,
+  NavigationEnd
 }                           from '@angular/router';
 
 
@@ -18,7 +19,7 @@ import {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent  implements OnInit  {
 
   allPatinet: any = [];
   allPatinetMaster: any = [];
@@ -33,24 +34,29 @@ export class DashboardComponent {
     private SharedseriveService : SharedseriveService,
  
   ) {
-    this.getAllPatient();
+
+    this.getAllPatient()
     this.SharedseriveService.patiendAdd.subscribe((data)=>{
-
-
       this.getAllPatient()
-
-
     })
     this.getuserDetail()
+
+ 
+
+
+    
   }
 
-  getuserDetail(){
+
+  ngOnInit(): void {
+    this.getAllPatient();
+  }
+
   
 
-   this.userInfo =  this.storageService.getUser() 
- 
+  getuserDetail(){
+   this.userInfo =  this.storageService.getUser()  
     }
-
 
   onSearchChange(searchValue: any): void {  
     this.allPatinet =  [...this.allPatinetMaster].filter((node:any)=>{ 
@@ -60,10 +66,7 @@ export class DashboardComponent {
 
 
   detailPage($id:any){
-
-
     this.allPatinet.map((node:any)=>{
-
        if (node._id== $id){
       node.active = true
       }
@@ -72,11 +75,7 @@ export class DashboardComponent {
       }
     })
 
- 
-
     this.router.navigate(['dashboard/patientdetail' , $id ]);
-
-
   }
 
 
@@ -93,6 +92,15 @@ getAllPatient(){
     if(this.allPatinet && this.allPatinet.length){
       this.detailPage(this.allPatinet[0]._id)
     }
+    else{
+
+      this.router.navigate(['/dashboard/addpatient']);
+    }
+
+
+
+
+
     
 
 
