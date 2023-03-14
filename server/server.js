@@ -40,7 +40,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-    .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+    .connect(`mongodb+srv://anupam:sqd6p4XNrImjejGb@cluster0.85nq5yn.mongodb.net/?retryWrites=true&w=majority`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
