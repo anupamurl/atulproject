@@ -2,6 +2,13 @@
             width: 100%;
             max-width: 783px;
             margin: 190px auto;
+            position: relative;
+        }
+        
+        .createBox .delBtn {
+            right: 10px;
+            top: 10px;
+            position: absolute;
         }
         
         .infobox {

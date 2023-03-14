@@ -12,42 +12,11 @@ let pdf = require("html-pdf");
 let path = require("path");
 
 
-let students = [{
-        name: "Joy",
-        email: "joy@example.com",
-        city: "New York",
-        country: "USA"
-    },
-    {
-        name: "John",
-        email: "John@example.com",
-        city: "San Francisco",
-        country: "USA"
-    },
-    {
-        name: "Clark",
-        email: "Clark@example.com",
-        city: "Seattle",
-        country: "USA"
-    },
-    {
-        name: "Watson",
-        email: "Watson@example.com",
-        city: "Boston",
-        country: "USA"
-    },
-    {
-        name: "Tony",
-        email: "Tony@example.com",
-        city: "Los Angels",
-        country: "USA"
-    }
-];
 
 
 
 var corsOptions = {
-    origin: ["http://localhost:4200"],
+    origin: ["http://localhost:4200", "http://localhost"],
     credentials: true
 }
 
@@ -137,8 +106,8 @@ app.get("/generateReport/:id/:planid", (req, res) => {
 
         if (plandate && plandate.length) {
 
-            info['start'] = plandate[0].start.toLocaleString('en-us',{ day : 'numeric', month:'short', year:'numeric'   })
-            info['end'] = plandate[0].end.toLocaleString('en-us',{ day : 'numeric', month:'short', year:'numeric'   })
+            info['start'] = plandate[0].start.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
+            info['end'] = plandate[0].end.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
             info['mealplan'] = plandate[0].mealplan
             info['guideline'] = plandate[0].guideline
 
@@ -150,20 +119,9 @@ app.get("/generateReport/:id/:planid", (req, res) => {
             if (err) {
                 res.send(err);
             } else {
-                let options = {
-                    "height": "11.25in",
-                    "width": "8.5in",
-                    "header": {
-                        "height": "20mm"
-                    },
-                    "footer": {
-                        "height": "20mm",
-                    },
-                };
 
 
-
-
+                var options = { format: 'Letter' };
 
 
                 pdf.create(decodeEntities(data), options).toFile("public/report.pdf", function(err, data) {

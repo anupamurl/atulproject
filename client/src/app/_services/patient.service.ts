@@ -44,6 +44,13 @@ export class PatientService {
 
   }
 
+  updateStatus($data:any){
+    return this.http.post(AUTH_API+ 'updatestatus', $data );
+
+  }
+
+
+
   updatePlan($data:any){
     return this.http.post(AUTH_API+ 'updateplan', $data );
 
@@ -92,10 +99,12 @@ export class PatientService {
     return this.http.post(AUTH_API+ 'deleteguide', $data );
 
   }
-  
 
-  
-
-
+  deleteUser($pid:any ){
+    let $data =  { 
+     'pid' : $pid   
+    }
+    return this.http.post(AUTH_API+ 'deleteuser', $data );
+  }
 }
 

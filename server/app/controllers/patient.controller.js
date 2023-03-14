@@ -199,6 +199,52 @@ exports.deletediteplan = (req, res) => {
 
 
 
+exports.updatestatus = (req, res) => {
+
+
+    let pid = req.body.pid;
+    let did = req.body.did;
+    let status = req.body.status;
+
+
+
+    Patient.findOneAndUpdate({ _id: pid, "plandate._id": did }, { $set: { "plandate.$.public": status } }).exec((err) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send({ message: "Status  was deleted successfully!" });
+        }
+    });
+};
+
+
+exports.deleteuser = (req, res) => {
+
+
+    let pid = req.body.pid;
+
+
+
+
+    // Patient.remove({ _id: pid }).exec((err) => {
+    //     if (err) {
+    //         res.send(err)
+    //     } else {
+    //         res.send({ message: "User removed successfully!" });
+    //     }
+    // });
+
+    Patient.remove(({ _id: pid }), function(err) {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send({ message: "User removed successfully!" });
+        }
+    });
+};
+
+
+
 
 
 exports.deleteguide = (req, res) => {

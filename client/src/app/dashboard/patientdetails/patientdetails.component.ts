@@ -5,6 +5,7 @@ import { SharedseriveService } from '../../_services/sharedserive.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Editor } from 'ngx-editor';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ConfirmationDialogService } from '../../confirmation-dialog/confirmation-dialog.service';
 const today = new Date();
 const month = today.getMonth();
 const year = today.getFullYear();
@@ -49,7 +50,9 @@ export class PatientdetailsComponent {
     private PatientService: PatientService,
     private SharedseriveService: SharedseriveService,
     private _Activatedroute: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+     private confirmationDialogService: ConfirmationDialogService,
+     private router :Router,
   ) {
     this._Activatedroute.paramMap.subscribe((params) => {
       console.log(params);
@@ -96,32 +99,99 @@ export class PatientdetailsComponent {
   }
 
   deleteDitePlan($id: any) {
-    console.log($id);
-    console.log(this.$ID);
 
-    this.PatientService.deletediteplan(this.$ID, $id).subscribe((data) => {
-      this.getPatientByID();
-    });
+    this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
+    .then((confirmed) => 
+    {
+      if(confirmed){
+        this.PatientService.deletediteplan(this.$ID, $id).subscribe((data) => {
+          this.getPatientByID();
+        });
+      }
+     }
+    )
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+
+
+
   }
 
   deleteMplan($item: any) {
-    this.PatientService.deletePlan(
-      this.$ID,
-      $item._id,
-      this.activePlanID
-    ).subscribe((data) => {
-      this.getPatientByID();
-    });
+
+    this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
+    .then((confirmed) => 
+    {
+      if(confirmed){
+        this.PatientService.deletePlan(
+          this.$ID,
+          $item._id,
+          this.activePlanID
+        ).subscribe((data) => {
+          this.getPatientByID();
+        });
+    
+      }
+     }
+    )
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+
+
+ 
+
+
+
+
+  }
+
+
+
+  deleteUser($id:any){
+
+     this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
+    .then((confirmed) => 
+    {
+      if(confirmed){
+
+        this.PatientService.deleteUser(
+          this.$ID         
+        ).subscribe((data) => {
+ 
+          this.router.navigate(['dashboard' ]);
+        });
+
+     
+      }
+     }
+    )
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+
+
+
+
   }
 
   deleteguide($item: any) {
-    this.PatientService.deleteguide(
-      this.$ID,
-      $item._id,
-      this.activePlanID
-    ).subscribe((data) => {
-      this.getPatientByID();
-    });
+
+    
+    this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
+    .then((confirmed) => 
+    {
+      if(confirmed){
+        this.PatientService.deleteguide(
+          this.$ID,
+          $item._id,
+          this.activePlanID
+        ).subscribe((data) => {
+          this.getPatientByID();
+        });
+    
+      }
+     }
+    )
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+
+
+ 
   }
 
   activePlan($ID: any) {
@@ -190,10 +260,26 @@ export class PatientdetailsComponent {
 
   }
 
-  editMealPlan(item:any){
-  
- 
+  editMealPlan(item:any){ 
     this.meal = { ... item }
+  }
+
+
+  changeStatus(item:any,stutus: boolean){
+
+
+  let  $data = { 
+     pid : this.$ID,
+     did : item._id,
+     status : true
+  }
+
+  this.PatientService.updateStatus($data).subscribe(($val) => {
+
+    console.log($val)
+    
+  });
+
 
 
 

@@ -1,6 +1,6 @@
 .leftbox {
     width: 293px;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     top: 0px;
     border-right: 1px solid #c2c2c2;
@@ -63,22 +63,29 @@ div.userlist {
 
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: white; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #E2E2E2; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: white;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #E2E2E2;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 div.userlist ul {
     margin: 0px;
     padding: 0px;
@@ -89,17 +96,19 @@ div.userlist ul li {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 10px;
- 
 }
-div.userlist ul li  a { color: black;   text-decoration: none; } 
 
-div.userlist ul li:hover  , div.userlist ul li.active { 
+div.userlist ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+div.userlist ul li:hover,
+div.userlist ul li.active {
     transition: all .5s;
-
-    background: #F8F8F8  ;
+    background: #F8F8F8;
     cursor: pointer;
-} 
- 
+}
 
 div.userlist ul li .imgbox {
     float: left;

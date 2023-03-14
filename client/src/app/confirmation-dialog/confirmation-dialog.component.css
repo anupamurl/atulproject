@@ -1,0 +1,7 @@
+ .app-session-modal-window {
+     z-index: 999 !important;
+ }
+ 
+ .app-session-modal-backdrop {
+     z-index: 999 !important;
+ }

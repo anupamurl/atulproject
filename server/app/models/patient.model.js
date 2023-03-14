@@ -15,6 +15,7 @@ const guideline = new mongoose.Schema({
 const plandate = new mongoose.Schema({
     start: Date,
     end: Date,
+    public: Boolean,
     mealplan: [mealplan],
     guideline: [guideline]
 }, { timestamps: true });

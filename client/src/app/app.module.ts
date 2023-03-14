@@ -25,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
-
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import {MatInputModule} from '@angular/material/input';
     DashboardComponent,
     AddpatientComponent,
     PatientdetailsComponent,
-    SanitizeHtmlPipePipe
+    SanitizeHtmlPipePipe,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import {MatInputModule} from '@angular/material/input';
     MatCardModule
 
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders,ConfirmationDialogService],
+  entryComponents: [ ConfirmationDialogComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

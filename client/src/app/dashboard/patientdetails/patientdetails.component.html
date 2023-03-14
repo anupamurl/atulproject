@@ -1,5 +1,8 @@
 <div class="createBox">
 
+    <a href="javascript:;" class="delBtn" (click)="deleteUser($ID)"><img src="/assets/delete.png"></a>
+
+
     <div class="infobox">
         <h2> {{userDetails.name}} </h2>
         <h3> {{userDetails.phone}} </h3>
@@ -47,7 +50,7 @@
 
     </div>
 
-    <div class="adddiet">
+    <div class="adddiet" [hidden]="activePlanID">
         <span> Create New Diet Plan </span>
         <article *ngIf="!gPdf">
             <button (click)="createDietPlan()" [disabled]="!range.value.start || !range.value.end"> Create  </button>
@@ -91,8 +94,13 @@
 
         <div class="actionbox">
 
-            <button (click)="activePlan( item._id )" *ngIf="!activePlanID">  Continue </button>
-            <button *ngIf="activePlanID">  <a href="http://localhost:8080/generateReport/{{userDetails._id}}/{{item._id}}" >  Generate PDF </a>        </button>
+            <button (click)="activePlan( item._id )" *ngIf="!activePlanID && !item.public ">  Continue </button>
+
+
+            <button *ngIf="(activePlanID && item.public) || ( !activePlanID &&  item.public ) ">  <a href="http://localhost:8080/generateReport/{{userDetails._id}}/{{item._id}}" >  Generate PDF </a>        </button>
+
+            <button (click)="item.public=true;changeStatus(item,true)" *ngIf="activePlanID &&  !item.public">  Public </button>
+            <button (click)="item.public=false;activePlan( item._id );changeStatus(item,false)" *ngIf="(activePlanID && item.public) || ( !activePlanID &&  item.public )" [hidden]="activePlanID">  Edit </button>
 
             <button (click)="activePlanID=null" *ngIf="activePlanID">  Back </button>
 
