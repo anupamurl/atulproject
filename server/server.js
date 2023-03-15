@@ -78,7 +78,7 @@ function decodeEntities(encodedString) {
 }
 
 
-app.get("/generateReport/:id/:planid", (req, res) => {
+app.get("/generatereport/:id/:planid", (req, res) => {
 
 
     var query = req.params;
