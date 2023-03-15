@@ -125,8 +125,10 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
                 var options = { format: 'Letter' };
 
+                const file = `${__dirname}/public/`;
 
-                pdf.create(decodeEntities(data), options).toFile("report.pdf", function(err, data) {
+
+                pdf.create(decodeEntities(data), options).toFile(file + "reportnew.pdf", function(err, data) {
 
                     console.log("======")
                     console.log(data)
@@ -136,8 +138,8 @@ app.get("/generatereport/:id/:planid", (req, res) => {
                     if (err) {
                         res.send(err);
                     } else {
-                        const file = `${__dirname}/public/`;
-                        res.download(file + '/report.pdf', function(err) {
+                         
+                        res.download(file + '/reportnew.pdf', function(err) {
                             if (err) {
                                 console.log(err);
                             }
