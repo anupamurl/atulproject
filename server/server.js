@@ -11,12 +11,9 @@ let ejs = require("ejs");
 let pdf = require("html-pdf");
 let path = require("path");
 
-
-
-
-
+ 
 var corsOptions = {
-    origin: ["http://localhost:4200" ,  "http://localhost"  ],
+    origin: ["http://localhost:4200" ,  "http://localhost" , 'http://54.190.34.238' ],
     credentials: true
 }
 
@@ -40,7 +37,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-    .connect(`mongodb+srv://anupam:sqd6p4XNrImjejGb@cluster0.85nq5yn.mongodb.net/?retryWrites=true&w=majority`, {
+    .connect(`mongodb://localhost:27017/peping_node`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
