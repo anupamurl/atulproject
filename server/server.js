@@ -89,6 +89,7 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
     Patient.findById(query.id, function(err, users) {
 
+        console.log("a");
         let info = {...users.toObject() }
 
 
@@ -100,6 +101,8 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
         if (plandate && plandate.length) {
 
+            console.log("b");
+
             info['start'] = plandate[0].start.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
             info['end'] = plandate[0].end.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
             info['mealplan'] = plandate[0].mealplan
@@ -110,18 +113,24 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
 
         ejs.renderFile((path.join(__dirname, './views/', "report-template.ejs")), { users: info }, (err, data) => {
+
+            console.log("c");
             if (err) {
                 res.send(err);
             } else {
 
-
+                console.log("d");
                 var options = { format: 'Letter' };
 
 
                 pdf.create(decodeEntities(data), options).toFile("public/report.pdf", function(err, data) {
+
+                    console.log("e");
                     if (err) {
+                        console.log("f");
                         res.send(err);
                     } else {
+                        console.log("g");
                         const file = `${__dirname}/public/`;
                         res.download(file + '/report.pdf', function(err) {
                             if (err) {
