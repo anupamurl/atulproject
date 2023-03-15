@@ -128,8 +128,8 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
                     console.log("e");
                     if (err) {
-                        console.log("f");
-                        res.send(err);
+                        
+                        res.send(__dirname+"/public/report.pdf");
                     } else {
                         console.log("g");
                         const file = `${__dirname}/public/`;
