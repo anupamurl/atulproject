@@ -232,7 +232,7 @@ export class PatientdetailsComponent {
       this.meal = {
         mealhtml: '',
         time: '12:00',
-        type: 'Breakfast',
+        type: 'None',
       };
     });
   }
