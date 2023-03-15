@@ -112,10 +112,7 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
         ejs.renderFile((path.join(__dirname, './views/', "report-template.ejs")), { users: info }, (err, data) => {
 
-            console.log("======")
-            console.log(data)
-            console.log(err)
-            console.log("======")
+      
 
 
             if (err) {
@@ -130,6 +127,12 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
 
                 pdf.create(decodeEntities(data), options).toFile("public/report.pdf", function(err, data) {
+
+                    console.log("======")
+                    console.log(data)
+                    console.log(err)
+                    console.log("======")
+                     
                     if (err) {
                         res.send(err);
                     } else {
