@@ -112,10 +112,10 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
         ejs.renderFile((path.join(__dirname, './views/', "report-template.ejs")), { users: info }, (err, data) => {
 
-            console.llog("======")
+            console.log("======")
             console.log(data)
             console.log(err)
-            console.llog("======")
+            console.log("======")
 
 
             if (err) {
