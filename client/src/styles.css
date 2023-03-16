@@ -3,7 +3,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 * {
-    font-family: 'Lato', sans-serif;
+    font-family: 'DM Sans', sans-serif !important;
 }
 
 html,
@@ -13,5 +13,5 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding: 0px;
 }

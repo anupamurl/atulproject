@@ -13,7 +13,7 @@ let path = require("path");
 
 
 var corsOptions = {
-    origin: ["http://localhost:4200", "http://localhost", 'http://54.190.34.238:8081'],
+    origin: ["http://localhost:4200", "http://localhost:8081", 'http://54.190.34.238:8081'],
     credentials: true
 }
 
@@ -37,7 +37,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-    .connect(`mongodb://localhost:27017/peping_node`, {
+    .connect(`mongodb://127.0.0.1:27017/peping_node`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
@@ -108,37 +108,19 @@ app.get("/generatereport/:id/:planid", (req, res) => {
         }
 
 
-        console.log("a")
+        console.log(path.join(__dirname, './views/', "report-template.ejs"))
+
 
         ejs.renderFile((path.join(__dirname, './views/', "report-template.ejs")), { users: info }, (err, data) => {
-
-
-
-
             if (err) {
-                console.log("b")
-
                 res.send(err);
             } else {
-                console.log("b")
-
-
                 var options = { format: 'Letter' };
-
                 const file = `${__dirname}/public/`;
-
-
                 pdf.create(decodeEntities(data), options).toFile(file + "reportnew.pdf", function(err, data) {
-
-                    console.log("======")
-                    console.log(data)
-                    console.log(err)
-                    console.log("======")
-
                     if (err) {
                         res.send(err);
                     } else {
-
                         res.download(file + '/reportnew.pdf', function(err) {
                             if (err) {
                                 console.log(err);

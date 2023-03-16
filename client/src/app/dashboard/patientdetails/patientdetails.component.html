@@ -105,7 +105,7 @@
             <button (click)="activePlanID=null" *ngIf="activePlanID">  Back </button>
 
 
-            <a href="javascript:;" (click)="deleteDitePlan(item._id)"><img src="/assets/delete.png"></a>
+            <a href="javascript:;" (click)="deleteDitePlan(item._id)" *ngIf="!activePlanID"><img src="/assets/delete.png"></a>
 
         </div>
         <div class="clearfix"></div>
@@ -147,7 +147,7 @@
 
             <ul class="mealList">
                 <li *ngFor="let item of mealList;  let i = index ">
-                    <span class="time">   {{item.time}} </span>
+                    <span class="time">  <strong>  {{item.time}}  </strong> <br>  {{item.type}}   </span>
                     <div class="hmtlbox" [innerHTML]="item.mealhtml | SanitizeHtmlPipe "></div>
                     <div class="action">
                         <a href="javascript:;" (click)="editMealPlan(item)"> Edit </a>
