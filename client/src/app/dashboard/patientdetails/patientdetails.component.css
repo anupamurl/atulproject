@@ -4,75 +4,75 @@
             margin: 190px auto;
             position: relative;
         }
-        
+
         .createBox .delBtn {
             right: 10px;
             top: 10px;
             position: absolute;
         }
-        
+
         .infobox {
             border: 1px solid #c2c2c2;
             padding: 20px;
         }
-        
+
         .infobox h2 {
             font-size: 18px;
         }
-        
+
         .infobox h3 {
             font-size: 12px;
         }
-        
+
         .infobox ul {
             margin: 0px;
             padding: 0px;
             display: 100%;
             margin-top: 30px;
         }
-        
+
         .infobox ul li {
             display: inline-block;
             border-right: 1px solid #c2c2c2;
             padding-right: 30px;
             padding-left: 10px;
         }
-        
+
         .infobox ul li:first-child {
             padding-left: 0px;
         }
-        
+
         .infobox ul li span {
             display: block;
         }
-        
+
         .complaints {
             padding: 20px;
             border: 1px solid #c2c2c2;
             border-top: 1px;
         }
-        
+
         .complaints strong {
             padding-right: 30px;
         }
-        
+
         .adddiet {
             padding: 20px;
             border: 1px solid #c2c2c2;
             margin-top: 10px;
         }
-        
+
         .adddiet article {
             float: right;
         }
-        
+
         .adddiet span {
             font-weight: bold;
             font-size: 16px;
             float: left;
             padding-top: 5px;
         }
-        
+
         .adddiet input[type='date'] {
             border: 1px solid #c2c2c2;
             border-radius: 15px;
@@ -80,7 +80,7 @@
             float: right;
             padding: 3px;
         }
-        
+
         .adddiet button {
             float: right;
             margin-left: 20px;
@@ -92,23 +92,23 @@
             margin-left: 10px;
             transition: background .5s;
         }
-        
+
         .formBox button[disabled],
         .adddiet button[disabled] {
             background: #cccccc;
             color: #666666;
         }
-        
+
         .formBox .adddiet button a {
             text-decoration: none;
             color: white;
         }
-        
+
         .adddiet div {
             clear: both;
             width: 100%;
         }
-        
+
         .adddietbox {
             padding: 20px;
             padding-left: 0px;
@@ -116,7 +116,7 @@
             border: 1px solid #c2c2c2;
             margin-top: 10px;
         }
-        
+
         .tabPanel {
             margin: 0px;
             padding: 0px;
@@ -124,11 +124,11 @@
             border-bottom: 1px solid #c2c2c2;
             padding-left: 10px;
         }
-        
+
         .tabPanel li {
             display: inline-block;
         }
-        
+
         .tabPanel li a {
             font-size: 16px;
             color: #000;
@@ -137,17 +137,17 @@
             display: block;
             border-bottom: 2px solid white;
         }
-        
+
         .tabPanel li a.active {
             border-bottom: 2px solid #F2695C;
         }
-        
+
         .NgxEditor__Wrapper {
             margin-top: 10px;
             border: none;
             margin: 5px;
         }
-        
+
         .formBox {
             width: 100%;
             float: left;
@@ -155,11 +155,11 @@
             padding-left: 10px;
             padding-right: 10px;
         }
-        
+
         .formBox article {
             float: left;
         }
-        
+
         .formBox button {
             float: right;
             margin-left: 20px;
@@ -170,21 +170,21 @@
             border: none;
             margin-left: 10px;
         }
-        
-        .formBox input[type=time] {
+
+        .formBox input[type=text] {
             border: 1px solid #c2c2c2;
             border-radius: 15px;
             color: #858585;
             padding: 3px;
         }
-        
+
         .formBox select {
             margin-left: 10px;
             border-radius: 15px;
             padding: 5px;
             border: 1px solid #c2c2c2;
         }
-        
+
         .mealList {
             margin: 0px;
             padding: 0px;
@@ -192,25 +192,25 @@
             padding-top: 50px;
             display: block;
         }
-        
+
         .mealList li {
             padding: 10px;
             border-top: 1px solid #c2c2c2;
             position: relative;
         }
-        
+
         .mealList li .time {
             display: inline-block;
             font-weight: bold;
         }
-        
+
         .mealList li .hmtlbox {
             display: inline-block;
             margin-left: 10px;
             max-width: 600px;
             width: 100%;
         }
-        
+
         .action {
             border: 1px solid #F2695C;
             border-radius: 15px;
@@ -220,18 +220,18 @@
             right: 40px;
             top: 20px
         }
-        
+
         .action a {
             padding: 3px 10px 3px 10px;
             color: #F2695C;
             text-decoration: none;
         }
-        
+
         .action a:first-child {
             border-right: 1px solid #F2695C;
             ;
         }
-        
+
         .rangeBox {
             border: 1px solid #F2695C;
             width: 255px !important;
@@ -240,35 +240,35 @@
             clear: none !important;
             border-radius: 25px;
         }
-        
+
         .mat-date-range-input {
             display: block;
             width: 200px;
             float: left;
             padding: 15px;
         }
-        
+
         .mat-card {
             margin-top: 10px;
             box-shadow: none;
             border: 1px solid #c2c2c2;
             padding: 10px;
         }
-        
+
         .mat-card div.head {
             float: left;
             font-size: 20px;
         }
-        
+
         .mat-card div.head span {
             padding-left: 80px;
             font-size: 18px;
         }
-        
+
         .mat-card div.actionbox {
             float: right;
         }
-        
+
         .mat-card div.actionbox button {
             margin-left: 20px;
             border-radius: 15px;
@@ -278,7 +278,7 @@
             border: none;
             margin-right: 10px;
         }
-        
+
         .mat-card div.actionbox button a {
             text-decoration: none;
             color: white;

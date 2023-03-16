@@ -97,7 +97,7 @@
             <button (click)="activePlan( item._id )" *ngIf="!activePlanID && !item.public ">  Continue </button>
 
 
-            <button *ngIf="(activePlanID && item.public) || ( !activePlanID &&  item.public ) ">  <a href="http://localhost:8080/generateReport/{{userDetails._id}}/{{item._id}}" >  Generate PDF </a>        </button>
+            <button *ngIf="(activePlanID && item.public) || ( !activePlanID &&  item.public ) ">  <a href="http://{{downloadLInk}}:8080/generatereport/{{userDetails._id}}/{{item._id}}" >   Generate PDF </a>        </button>
 
             <button (click)="item.public=true;changeStatus(item,true)" *ngIf="activePlanID &&  !item.public">  Public </button>
             <button (click)="item.public=false;activePlan( item._id );changeStatus(item,false)" *ngIf="(activePlanID && item.public) || ( !activePlanID &&  item.public )" [hidden]="activePlanID">  Edit </button>
@@ -130,9 +130,10 @@
 
             <div class="formBox">
                 <article>
-                    <input type="time" [(ngModel)]="meal.time">
+                    <input type="text" [(ngModel)]="meal.time">
                     <select [(ngModel)]="meal.type">
-                            <option> Breakfast     </option>
+                      <option> None    </option>
+                           <option> Breakfast     </option>
                             <option> Lunch   </option>
                             <option> Snacks   </option>
                             <option> Dinner   </option>

@@ -12,11 +12,8 @@ let pdf = require("html-pdf");
 let path = require("path");
 
 
-
-
-
 var corsOptions = {
-    origin: ["http://localhost:4200", "http://localhost:80", , "http://localhost"],
+    origin: ["http://localhost:4200", "http://localhost", 'http://54.190.34.238'],
     credentials: true
 }
 
@@ -40,7 +37,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-    .connect(`mongodb+srv://anupam:sqd6p4XNrImjejGb@cluster0.85nq5yn.mongodb.net/?retryWrites=true&w=majority`, {
+    .connect(`mongodb://localhost:27017/peping_node`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
@@ -81,7 +78,7 @@ function decodeEntities(encodedString) {
 }
 
 
-app.get("/generateReport/:id/:planid", (req, res) => {
+app.get("/generatereport/:id/:planid", (req, res) => {
 
 
     var query = req.params;
@@ -111,22 +108,38 @@ app.get("/generateReport/:id/:planid", (req, res) => {
         }
 
 
+        console.log("a")
 
         ejs.renderFile((path.join(__dirname, './views/', "report-template.ejs")), { users: info }, (err, data) => {
+
+
+
+
             if (err) {
+                console.log("b")
+
                 res.send(err);
             } else {
+                console.log("b")
 
 
                 var options = { format: 'Letter' };
 
+                const file = `${__dirname}/public/`;
 
-                pdf.create(decodeEntities(data), options).toFile("public/report.pdf", function(err, data) {
+
+                pdf.create(decodeEntities(data), options).toFile(file + "reportnew.pdf", function(err, data) {
+
+                    console.log("======")
+                    console.log(data)
+                    console.log(err)
+                    console.log("======")
+
                     if (err) {
                         res.send(err);
                     } else {
-                        const file = `${__dirname}/public/`;
-                        res.download(file + '/report.pdf', function(err) {
+
+                        res.download(file + '/reportnew.pdf', function(err) {
                             if (err) {
                                 console.log(err);
                             }

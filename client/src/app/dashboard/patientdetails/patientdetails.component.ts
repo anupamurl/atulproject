@@ -28,7 +28,7 @@ export class PatientdetailsComponent {
   mealList: any = [];
   guideList: any = [];
   updateGuideID: any = null;
-
+  downloadLInk : any ;
   meal: any = {
     mealhtml: '',
     time: '12:00',
@@ -54,6 +54,7 @@ export class PatientdetailsComponent {
      private confirmationDialogService: ConfirmationDialogService,
      private router :Router,
   ) {
+    this.downloadLInk = window.location.hostname;
     this._Activatedroute.paramMap.subscribe((params) => {
       console.log(params);
       this.$ID = params.get('id');
@@ -101,7 +102,7 @@ export class PatientdetailsComponent {
   deleteDitePlan($id: any) {
 
     this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
-    .then((confirmed) => 
+    .then((confirmed) =>
     {
       if(confirmed){
         this.PatientService.deletediteplan(this.$ID, $id).subscribe((data) => {
@@ -119,7 +120,7 @@ export class PatientdetailsComponent {
   deleteMplan($item: any) {
 
     this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
-    .then((confirmed) => 
+    .then((confirmed) =>
     {
       if(confirmed){
         this.PatientService.deletePlan(
@@ -129,14 +130,14 @@ export class PatientdetailsComponent {
         ).subscribe((data) => {
           this.getPatientByID();
         });
-    
+
       }
      }
     )
     .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
 
 
- 
+
 
 
 
@@ -148,20 +149,20 @@ export class PatientdetailsComponent {
   deleteUser($id:any){
 
      this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
-    .then((confirmed) => 
+    .then((confirmed) =>
     {
       if(confirmed){
 
         this.PatientService.deleteUser(
-          this.$ID         
+          this.$ID
         ).subscribe((data) => {
 
           this.SharedseriveService.patiendAdd.emit()
- 
+
           this.router.navigate(['dashboard' ]);
         });
 
-     
+
       }
      }
     )
@@ -174,9 +175,9 @@ export class PatientdetailsComponent {
 
   deleteguide($item: any) {
 
-    
+
     this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
-    .then((confirmed) => 
+    .then((confirmed) =>
     {
       if(confirmed){
         this.PatientService.deleteguide(
@@ -186,14 +187,14 @@ export class PatientdetailsComponent {
         ).subscribe((data) => {
           this.getPatientByID();
         });
-    
+
       }
      }
     )
     .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
 
 
- 
+
   }
 
   activePlan($ID: any) {
@@ -231,14 +232,14 @@ export class PatientdetailsComponent {
       this.meal = {
         mealhtml: '',
         time: '12:00',
-        type: 'Breakfast',
+        type: 'None',
       };
     });
   }
 
   editGuide(item: any) {
 
- 
+
     this.guide.guidehtml = item.guidehtml
     this.updateGuideID = item._id;
   }
@@ -262,7 +263,7 @@ export class PatientdetailsComponent {
 
   }
 
-  editMealPlan(item:any){ 
+  editMealPlan(item:any){
     this.meal = { ... item }
   }
 
@@ -270,7 +271,7 @@ export class PatientdetailsComponent {
   changeStatus(item:any,stutus: boolean){
 
 
-  let  $data = { 
+  let  $data = {
      pid : this.$ID,
      did : item._id,
      status : true
@@ -279,7 +280,7 @@ export class PatientdetailsComponent {
   this.PatientService.updateStatus($data).subscribe(($val) => {
 
     console.log($val)
-    
+
   });
 
 
@@ -287,9 +288,9 @@ export class PatientdetailsComponent {
 
   }
 
-  editMeal(){   
+  editMeal(){
     this.meal['pid']  = this.userDetails._id;
-    this.meal['plandate']  = this.activePlanID;  
+    this.meal['plandate']  = this.activePlanID;
     this.PatientService.updatePlan(this.meal).subscribe(($val) => {
       this.meal =  {
         mealhtml: '',
