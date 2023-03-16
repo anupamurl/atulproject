@@ -16,7 +16,7 @@ let path = require("path");
 
 
 var corsOptions = {
-    origin: ["http://localhost:4200" ,  "http://localhost"  ],
+    origin: ["http://localhost:4200", "http://localhost:80", , "http://localhost"],
     credentials: true
 }
 
@@ -46,7 +46,7 @@ db.mongoose
     })
     .then(() => {
         console.log("Successfully connect to MongoDB.");
-        
+
     })
     .catch(err => {
         console.error("Connection error", err);
@@ -54,7 +54,7 @@ db.mongoose
     });
 
 // simple route
- 
+
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
@@ -142,12 +142,10 @@ app.get("/generateReport/:id/:planid", (req, res) => {
 
 
 })
- 
- 
- 
- let PORT = 8080;
+
+
+
+let PORT = 8080;
 app.listen(PORT, () => {
     console.log(`client is running on port ${PORT}.`);
 });
-
- 
