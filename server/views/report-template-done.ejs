@@ -1,0 +1,244 @@
+<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>PDF </title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            text-indent: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        html {
+            zoom: 0.55;
+        }
+        
+        h2 {
+            color: #F1695C;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .s1 {
+            color: #424242;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10px;
+        }
+        
+        .s2 {
+            color: black;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10px;
+        }
+        
+        .s3 {
+            color: black;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        h3 {
+            color: #F1695C;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        .s4 {
+            color: black;
+            font-style: italic;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10px;
+        }
+        
+        h1 {
+            color: #F1695C;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        h4 {
+            color: black;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 10px;
+        }
+        
+        p {
+            color: black;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10px;
+            margin: 0pt;
+        }
+        
+        .s5 {
+            color: #00F;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10px;
+        }
+        
+        .s6 {
+            color: #F00;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10px;
+        }
+        
+        li {
+            display: block;
+        }
+        
+        #l1 {
+            padding-left: 0px;
+        }
+        
+        #l1>li>*:first-child:before {
+            content: "● ";
+            color: black;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+        }
+        
+        table,
+        tbody {
+            vertical-align: top;
+            overflow: visible;
+        }
+    </style>
+</head>
+
+<body style="width:90%;  padding: 20px;">
+    <p style="text-indent: 0pt;text-align: left;"><span><table border="0" cellspacing="0" cellpadding="0" style="position:absolute;"><tr><td><img width="50" height="50" src="data:image/png;base64,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"/></td></tr></table style="width:100%"></span></p>
+    <h2 style="padding-top: 4pt;padding-left: 88pt;text-indent: 0pt;text-align: left;">Peping Health</h2>
+    <p class="s1" style="padding-top: 2pt;padding-left: 88pt;text-indent: 0pt;line-height: 114%;text-align: left;">Dietitian Ranjani Raman, M.Sc.(DFSM),CED,PGCPDN,PGDFSQM Member of Indian Dietetic Association</p>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <table style="border-collapse:collapse;margin-left:6pt; width:100%" cellspacing="0">
+        <tr style="height:41pt">
+            <td style="width:30%;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s2" style="padding-top: 5pt;padding-left: 10pt; text-indent: 0pt;text-align: center;">Client Name</p>
+                <p class="s3" style="padding-top: 1pt;padding-left: 8pt; text-indent: 0pt;text-align: center;">
+                    <%= users.name %>
+                </p>
+            </td>
+            <td style="width:20%;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Age</p>
+                <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">
+                    <%= users.age %>
+                </p>
+            </td>
+            <td style="width:20%;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Weight</p>
+                <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">
+                    <%= users.weight %> kg
+                </p>
+            </td>
+            <td style="width:20%;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF">
+                <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Height</p>
+                <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">
+                    <%= users.height %> cm
+                </p>
+            </td>
+        </tr>
+    </table>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <h3 style="padding-top: 5pt;padding-left: 6pt;text-indent: 0pt;text-align: left;"> Nutrition plan (
+        <%= users.start %> -
+            <%= users.end %> )</h3>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <table style="border-collapse:collapse;margin-left:6.5pt; width:100%" cellspacing="0">
+        <tr style="height:35pt">
+            <td style=" padding: 20px; width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+
+                Timings
+            </td>
+            <td style=" padding: 20px; width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+
+                Meal Options
+            </td>
+        </tr>
+
+
+        <% if (users.mealplan.length > 0) { %>
+            <% users.mealplan.forEach(user => {%>
+
+                <tr>
+                    <td style="font-size: 14px; padding: 20px; width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+
+                        <%= user.time %>
+
+                    </td>
+
+
+                    <td style="font-size: 14px; padding: 20px; width:396pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                        <%= user.mealhtml %>
+
+                    </td>
+
+
+                </tr>
+                <%  });%>
+                    <% }%>
+
+    </table>
+    <div style="page-break-before:always">&nbsp;</div>
+    <h1 style="padding-top: 32pt;padding-left: 6pt;text-indent: 0pt;text-align: left; border-bottom: 1px solid rgb(166 166 166 / 50%); padding-bottom:30px;">Guidelines</h1>
+    <p style="padding-left: 10pt;text-indent: 0pt;line-height: 1pt;text-align: left;" />
+    <h4 style="padding-top: 7pt;padding-left: 6pt;text-indent: 0pt;line-height: 114%;text-align: justify;">
+        <% if ( users.guideline &&  users.guideline.length > 0) { %>
+            <%= users.guideline[0]['guidehtml'] %>
+
+                <% }%>
+
+
+    </h4>
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+
+    <table style="border-collapse:collapse;margin-left:6.5pt; width:100%" cellspacing="0">
+        <% if (users.guideline &&   users.guideline.length > 0) { %>
+            <% users.guideline.forEach( ( user , i ) => {%>
+
+                <% if( i > 0){ %>
+                    <tr>
+                        <td style=" padding: 10px; width: 3px;">
+                            <span>  ●  </span>
+                        </td>
+                        <td style=" padding: 10px;">
+                            <%= user.guidehtml %>
+                        </td>
+                    </tr>
+
+                    <% }%>
+
+
+                        <%  });%>
+                            <% }%>
+    </table>
+
+</body>
+
+</html>
