@@ -79,7 +79,7 @@ function decodeEntities(encodedString) {
 
 
 app.get("/generatereport/:id/:planid", (req, res) => {
-
+    res.set({ 'content-type': 'application/json; charset=utf-8' });
 
 
     var query = req.params;
@@ -111,10 +111,15 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
 
 
+
         ejs.renderFile((path.join(__dirname, './views/', "report-template.ejs")), { users: info }, (err, data) => {
             if (err) {
                 res.send(err);
             } else {
+
+
+
+
                 var options = { format: 'Letter' };
                 const file = `${__dirname}/public/`;
                 pdf.create(decodeEntities(data), options).toFile(file + "reportnew.pdf", function(err, data) {

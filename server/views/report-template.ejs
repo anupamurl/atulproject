@@ -130,6 +130,14 @@
             text-decoration: none;
         }
         
+        #l1>li:before {
+            content: "●";
+            color: black;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+        }
+        
         table,
         tbody {
             vertical-align: top;
@@ -231,7 +239,6 @@
             <% users.guideline.forEach( ( user , i ) => {%>
                 <% if( i > 0){ %>
                     <li style="padding-top: 5px; padding-bottom: 5px;">
-                        &#9679;
                         <%= user.guidehtml %>
                     </li>
                     <% }%>
