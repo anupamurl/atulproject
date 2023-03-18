@@ -131,7 +131,6 @@
         }
         
         #l1>li:before {
-            content: "●";
             color: black;
             font-style: normal;
             font-weight: normal;
@@ -238,7 +237,8 @@
         <% if (users.guideline &&   users.guideline.length > 0) { %>
             <% users.guideline.forEach( ( user , i ) => {%>
                 <% if( i > 0){ %>
-                    <li style="padding-top: 5px; padding-bottom: 5px;">
+                    <li style="padding-top: 5px; padding-bottom: 5px; position: relative;">
+                        <img src="https://fakeimg.pl/10/" style="position: absolute; margin-left: -10px;">
                         <%= user.guidehtml %>
                     </li>
                     <% }%>
