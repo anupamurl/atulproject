@@ -124,7 +124,6 @@
         }
         
         #l1>li>*:first-child:before {
-            content: "● ";
             color: black;
             font-style: normal;
             font-weight: normal;
@@ -232,7 +231,7 @@
             <% users.guideline.forEach( ( user , i ) => {%>
                 <% if( i > 0){ %>
                     <li style="padding-top: 5px; padding-bottom: 5px;">
-
+                        &#9679;
                         <%= user.guidehtml %>
                     </li>
                     <% }%>
