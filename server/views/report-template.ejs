@@ -3,20 +3,22 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <title>file_1678509306393</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>File</title>
     <style type="text/css">
         body {
             padding: 40px;
         }
         
         html {
-            zoom: 0.55;
+            zoom: 0.75;
         }
         
         * {
+            font-family: 'DM Sans', sans-serif;
             margin: 0;
             padding: 0;
             text-indent: 0;
@@ -24,7 +26,6 @@
         
         h2 {
             color: #F1695C;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: bold;
             text-decoration: none;
@@ -33,7 +34,6 @@
         
         .s1 {
             color: #424242;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: normal;
             text-decoration: none;
@@ -42,7 +42,6 @@
         
         .s2 {
             color: black;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: normal;
             text-decoration: none;
@@ -51,7 +50,6 @@
         
         .s3 {
             color: black;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: bold;
             text-decoration: none;
@@ -60,7 +58,6 @@
         
         h3 {
             color: #F1695C;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: bold;
             text-decoration: none;
@@ -69,7 +66,6 @@
         
         .s4 {
             color: black;
-            font-family: 'Lato', sans-serif;
             font-style: italic;
             font-weight: normal;
             text-decoration: none;
@@ -79,7 +75,6 @@
         
         h1 {
             color: #F1695C;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: bold;
             text-decoration: none;
@@ -88,7 +83,6 @@
         
         h4 {
             color: black;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: bold;
             text-decoration: none;
@@ -97,7 +91,6 @@
         
         p {
             color: black;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: normal;
             text-decoration: none;
@@ -107,7 +100,6 @@
         
         .s5 {
             color: #00F;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: normal;
             text-decoration: none;
@@ -116,7 +108,6 @@
         
         .s6 {
             color: #F00;
-            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: normal;
             text-decoration: none;
@@ -134,7 +125,6 @@
         #l1>li>*:first-child:before {
             content: "● ";
             color: black;
-            font-family: Arial, sans-serif;
             font-style: normal;
             font-weight: normal;
             text-decoration: none;
@@ -206,7 +196,9 @@
                     <td style="font-size: 14px; padding: 20px; width:140pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
 
                         <%= user.time %><br>
-                            <%= user.type %>
+                            <% if (user.type !='None' ) { %>
+                                <%= user.type %>
+                                    <%  }  %>
 
 
                     </td>
@@ -237,19 +229,13 @@
     <ul id="l1">
         <% if (users.guideline &&   users.guideline.length > 0) { %>
             <% users.guideline.forEach( ( user , i ) => {%>
-
                 <% if( i > 0){ %>
                     <li data-list-text="●" style="padding-top: 5px; padding-bottom: 5px;">
-
                         <%= user.guidehtml %>
-
                     </li>
                     <% }%>
-
-
                         <%  });%>
                             <% }%>
-
     </ul>
 </body>
 
