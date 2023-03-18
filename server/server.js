@@ -124,6 +124,8 @@ app.get("/generatereport/:id/:planid", (req, res) => {
                 const file = `${__dirname}/public/`;
                 var date = Date.now();
                 pdf.create(decodeEntities(data), options).toFile(file + date + "reportnew.pdf", function(err, data) {
+                    console.log(data);
+                    console.log(err)
                     if (err) {
                         res.send(err);
                     } else {
