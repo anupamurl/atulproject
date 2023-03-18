@@ -19,6 +19,7 @@
         
         * {
             font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
             margin: 0;
             padding: 0;
             text-indent: 0;
@@ -230,7 +231,8 @@
         <% if (users.guideline &&   users.guideline.length > 0) { %>
             <% users.guideline.forEach( ( user , i ) => {%>
                 <% if( i > 0){ %>
-                    <li data-list-text="●" style="padding-top: 5px; padding-bottom: 5px;">
+                    <li style="padding-top: 5px; padding-bottom: 5px;">
+                        ● &nbsp; &nbsp;
                         <%= user.guidehtml %>
                     </li>
                     <% }%>

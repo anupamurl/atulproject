@@ -81,6 +81,7 @@ function decodeEntities(encodedString) {
 app.get("/generatereport/:id/:planid", (req, res) => {
 
 
+
     var query = req.params;
 
 
@@ -109,7 +110,6 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
 
         console.log(path.join(__dirname, './views/', "report-template.ejs"))
-
 
         ejs.renderFile((path.join(__dirname, './views/', "report-template.ejs")), { users: info }, (err, data) => {
             if (err) {
