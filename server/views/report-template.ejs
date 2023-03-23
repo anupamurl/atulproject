@@ -121,11 +121,13 @@
             overflow: visible;
         }
         
-        table tbody tr td:before,
-        table tbody tr td:after {
-            content: "";
-            height: 4px;
-            display: block;
+        table {
+            break-inside: auto;
+        }
+        
+        tr {
+            break-inside: avoid;
+            break-after: auto;
         }
     </style>
 </head>
