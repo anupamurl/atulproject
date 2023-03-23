@@ -133,7 +133,7 @@
     <h2 style="padding-top: 4pt;padding-left: 78pt;text-indent: 0pt;text-align: left;">Peping Health</h2>
     <p class="s1" style="padding-top: 2pt;padding-left: 78pt;text-indent: 0pt;line-height: 114%;text-align: left;">Dietitian Ranjani Raman, M.Sc.(DFSM),CED,PGCPDN,PGDFSQM Member of Indian Dietetic Association</p>
     <p style="text-indent: 0pt;text-align: left;"><br/></p>
-    <table style="border-collapse:collapse;width:100%" cellspacing="0">
+    <table style="border-collapse:collapse;width:100%;display: block;" cellspacing="0">
         <tr style="height:41pt">
             <td style="width:216pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
                 <p class="s2" style="padding-top: 5pt;padding-left: 78pt;padding-right: 69pt;text-indent: 0pt;">Client Name</p>
@@ -220,15 +220,18 @@
         <% if (users.guideline &&   users.guideline.length > 0) { %>
             <% users.guideline.forEach( ( user , i ) => {%>
                 <% if( i > 0){ %>
-                    <li  style="padding-top: 5px;   padding-bottom: 5px; position: relative;  list-style:none; position: relative;">
-                        
-                        <div  style="   position: absolute; top:12px"  > <img width="7" height="7" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB2SURBVHgBpZOBCcAgDAS/ncTRXK2TOIJu4Ai6gU1KKoKKNn04FPEChgj0sYQjElFkdXI+jSG8CDOi3OvEuBCnBXbFF9++sShg72mGRmavdvUr6ZCNKieRoUtmOUCXwPIFXaq3mqzRoNQY/Jiw3QJ+JLax2PxVNwaSe/K8r5e0AAAAAElFTkSuQmCC"/> 
+                    <li style="padding-top: 5px;   padding-bottom: 5px; position: relative;  list-style:none; position: relative;">
+
+                        <div style="   position: absolute; top:12px"> <img width="7" height="7" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB2SURBVHgBpZOBCcAgDAS/ncTRXK2TOIJu4Ai6gU1KKoKKNn04FPEChgj0sYQjElFkdXI+jSG8CDOi3OvEuBCnBXbFF9++sShg72mGRmavdvUr6ZCNKieRoUtmOUCXwPIFXaq3mqzRoNQY/Jiw3QJ+JLax2PxVNwaSe/K8r5e0AAAAAElFTkSuQmCC"
+                            />
 
 
                         </div>
-                         
-<div style="display: inline-block;   width: 95%; padding-left: 15px;" >  <%= user.guidehtml %> </div>
-                       
+
+                        <div style="display: inline-block;   width: 95%; padding-left: 15px;">
+                            <%= user.guidehtml %>
+                        </div>
+
                     </li>
                     <% }%>
                         <%  });%>
