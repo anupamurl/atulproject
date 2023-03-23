@@ -115,19 +115,13 @@
             font-size: 10pt;
         }
         
-        table,
-        tbody {
-            vertical-align: top;
-            overflow: visible;
-        }
-        
         table {
-            break-inside: auto;
+            border-collapse: collapse;
         }
         
-        tr {
-            break-inside: avoid;
-            break-after: auto;
+        tr td {
+            page-break-inside: avoid;
+            white-space: nowrap;
         }
     </style>
 </head>
