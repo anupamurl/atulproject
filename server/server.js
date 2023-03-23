@@ -120,11 +120,18 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
 
 
-                var options = { format: 'Letter' };
+                var options = {
+                    format: 'Letter',
+                    header: { "height": "5mm" },
+                    footer: { "height": "5mm" },
+                    border: { top: '30px', bottom: '30px', left: '10px' }
+                };
+
+
                 const file = `${__dirname}/pdfs/`;
                 var date = Date.now();
                 pdf.create(decodeEntities(data), options).toFile(file + date + "reportnew.pdf", function(err, data) {
-                
+
                     if (err) {
                         res.send(err);
                     } else {
