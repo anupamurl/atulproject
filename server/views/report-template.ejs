@@ -122,6 +122,10 @@
         tr td {
             page-break-inside: avoid;
         }
+        
+        .force-pb {
+            page-break-after: always;
+        }
     </style>
 </head>
 
@@ -205,6 +209,8 @@
                 </tr>
                 <%  });%>
                     <% }%>
+
+                        <div class="force-pb"> </div>
 
 
     </table>
