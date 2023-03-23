@@ -124,7 +124,7 @@ app.get("/generatereport/:id/:planid", (req, res) => {
                     format: 'Letter',
                     header: { "height": "5mm" },
                     footer: { "height": "5mm" },
-                    border: { top: '30px', bottom: '30px', left: '10px' }
+                    border: { bottom: '30px' }
                 };
 
 
