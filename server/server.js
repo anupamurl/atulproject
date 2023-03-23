@@ -4,7 +4,7 @@ const cookieSession = require("cookie-session");
 var request = require('request');
 
 const dbConfig = require("./app/config/db.config");
-
+var fs = require('fs');
 const app = express();
 app.use(express.static('public'))
 let ejs = require("ejs");
@@ -121,15 +121,16 @@ app.get("/generatereport/:id/:planid", (req, res) => {
 
 
                 var options = { format: 'Letter' };
-                const file = `${__dirname}/public/`;
+                const file = `${__dirname}/pdfs/`;
                 var date = Date.now();
                 pdf.create(decodeEntities(data), options).toFile(file + date + "reportnew.pdf", function(err, data) {
-                    console.log(data);
-                    console.log(err)
+                
                     if (err) {
                         res.send(err);
                     } else {
                         res.download(file + date + "reportnew.pdf", function(err) {
+
+                            fs.unlinkSync(file + date + "reportnew.pdf");
                             if (err) {
                                 console.log(err);
                             }
