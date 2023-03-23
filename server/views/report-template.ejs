@@ -133,32 +133,37 @@
     <h2 style="padding-top: 4pt;padding-left: 78pt;text-indent: 0pt;text-align: left;">Peping Health</h2>
     <p class="s1" style="padding-top: 2pt;padding-left: 78pt;text-indent: 0pt;line-height: 114%;text-align: left;">Dietitian Ranjani Raman, M.Sc.(DFSM),CED,PGCPDN,PGDFSQM Member of Indian Dietetic Association</p>
     <p style="text-indent: 0pt;text-align: left;"><br/></p>
-    <table style="border-collapse:collapse;width:100%;display: block;" cellspacing="0">
-        <tr style="height:41pt">
-            <td style="width:216pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
-                <p class="s2" style="padding-top: 5pt;padding-left: 78pt;padding-right: 69pt;text-indent: 0pt;">Client Name</p>
-                <p class="s3" style="padding-top: 1pt;padding-left: 78pt;padding-right: 69pt;text-indent: 0pt;">
-                    <%= users.name %>
-                </p>
-            </td>
-            <td style="width:107pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
-                <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Age</p>
-                <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">
-                    <%= users.age %>
-                </p>
-            </td>
-            <td style="width:107pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
-                <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Weight</p>
-                <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">
-                    <%= users.weight %>KG</p>
-            </td>
-            <td style="width:107pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF">
-                <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Height</p>
-                <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">
-                    <%= users.height %>CM</p>
-            </td>
-        </tr>
-    </table>
+    <div style="display: block; break-inside: avoid">
+        <table style="border-collapse:collapse;width:100%; " cellspacing="0">
+            <tr style="height:41pt">
+                <td style="width:216pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                    <p class="s2" style="padding-top: 5pt;padding-left: 78pt;padding-right: 69pt;text-indent: 0pt;">Client Name</p>
+                    <p class="s3" style="padding-top: 1pt;padding-left: 78pt;padding-right: 69pt;text-indent: 0pt;">
+                        <%= users.name %>
+                    </p>
+                </td>
+                <td style="width:107pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                    <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Age</p>
+                    <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">
+                        <%= users.age %>
+                    </p>
+                </td>
+                <td style="width:107pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF;border-right-style:solid;border-right-width:1pt;border-right-color:#EFEFEF">
+                    <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Weight</p>
+                    <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">
+                        <%= users.weight %>KG</p>
+                </td>
+                <td style="width:107pt;border-top-style:solid;border-top-width:1pt;border-top-color:#EFEFEF;border-left-style:solid;border-left-width:1pt;border-left-color:#EFEFEF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#EFEFEF">
+                    <p class="s2" style="padding-top: 5pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Height</p>
+                    <p class="s3" style="padding-top: 1pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">
+                        <%= users.height %>CM</p>
+                </td>
+            </tr>
+        </table>
+        <p style="page-break-after: always;"> </p>
+    </div>
+
+
     <p style="text-indent: 0pt;text-align: left;"><br/></p>
     <h3 style="padding-top: 5pt;padding-left: 6pt;text-indent: 0pt;text-align: left;"> Nutrition plan (
         <%= users.start %> -
