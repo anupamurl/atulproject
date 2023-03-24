@@ -99,7 +99,7 @@
 
             <button *ngIf="(activePlanID && item.public) || ( !activePlanID &&  item.public ) ">  <a href="http://{{downloadLInk}}:8080/generatereport/{{userDetails._id}}/{{item._id}}" >   Generate PDF </a>        </button>
 
-            <button (click)="item.public=true;changeStatus(item,true)" *ngIf="activePlanID &&  !item.public">  Public </button>
+            <button (click)="item.public=true;changeStatus(item,true)" *ngIf="activePlanID &&  !item.public"> Publish </button>
             <button (click)="item.public=false;activePlan( item._id );changeStatus(item,false)" *ngIf="(activePlanID && item.public) || ( !activePlanID &&  item.public )" [hidden]="activePlanID">  Edit </button>
 
             <button (click)="activePlanID=null" *ngIf="activePlanID">  Back </button>
@@ -125,7 +125,7 @@
         <div class="mealplan" [hidden]="tab==1">
             <div class="NgxEditor__Wrapper">
                 <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
-                <ngx-editor [editor]="editor" [(ngModel)]="meal.mealhtml" [disabled]="false" [placeholder]="'Typ Meal Options'"></ngx-editor>
+                <ngx-editor [editor]="editor" [(ngModel)]="meal.mealhtml" [disabled]="false" [placeholder]="'Type Meal Options'"></ngx-editor>
             </div>
 
             <div class="formBox">
