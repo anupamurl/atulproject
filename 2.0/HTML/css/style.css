@@ -1,0 +1,1050 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  font-family: 'Gordita';
+  font-size: 14px;
+}
+
+/* login page */
+.login_main_div {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.login_img {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.login_inner_div {
+  max-width: 390px;
+  margin: auto;
+  min-width: 340px;
+}
+.form_input_div input {
+  padding: 15px 15px;
+  width: 100%;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+.form_input_div input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.form_input_div input::placeholder {
+  color: #000000;
+}
+.login_heading{
+  font-size: 28px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.patient_main_div{
+  display: flex;
+}
+
+.form_input_div{
+  margin-bottom: 15px;
+}
+.form_button button{
+  background-color: #F2695C;
+  border: none;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0px;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+}
+.form_input_div input.checkbox_input{
+  width: auto;
+  border-radius: 0px;
+}
+.forget_password_text {
+  max-width: 280px;
+  margin: 50px auto 0px;
+}
+.search_main_div{
+background-color: #F4F4F4;
+max-width: 310px;
+border-right: 1px solid rgba(0, 0, 0, 0.1);
+max-width: 310px;
+position: relative;
+height: 100vh;
+overflow: auto;
+min-width: 310px;
+}
+.search_div form{
+  position: relative;
+}
+.search_div{
+  padding: 0px 30px;
+}
+.search_input{
+  border: none;
+border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+padding: 15px 15px 15px 45px;
+background-color: transparent;
+width: 100%;
+}
+.search_input:focus{
+  outline: none;
+}
+.search_icon{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  height: fit-content;
+  left: 0px;
+  margin: auto;
+  cursor: pointer;
+
+}
+.single_patient_div{
+  /* margin-bottom: 10px; */
+  padding: 10px 30px;
+  position: relative;
+  transition: ease 0.3s all;
+}
+.single_patient_div:hover{
+  background-color: white;
+}
+.grey_color{
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+}
+.single_patient_div a, .single_patient_div a:hover{
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+.black_color, .black_color:hover{
+  color: black;
+  
+}
+h6.black_color{
+  font-family: 'Gordita';
+  font-weight: bold;
+}
+.font-bold{
+  font-family: 'Gordita';
+  font-weight: bold;
+}
+.green_got{
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  position: absolute;
+  display: block;
+  background-color: #2DAD00;
+  top: 15px;
+  right: 30px;
+}
+.patient_name_list{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 100px;
+  padding-top: 10px;
+}
+.logout_button, .logout_button:hover{
+  color: #F2695C;
+  text-decoration: none;
+}
+.logout_div{
+  display: flex;
+  column-gap: 20px;
+  padding: 20px 30px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+.patient_plan_div{
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  max-width: 330px;
+  min-width: 330px;
+}
+.deit_plan_div{
+  padding: 15px 0px;
+  background-color: white;
+ 
+}
+.single_diet_plan_div{
+  column-gap: 20px;
+  padding-bottom: 17px;
+  align-items: center;
+  justify-content: space-between;
+}
+.diet_plan_button_div {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 13px;
+}
+.diet_plan_date_div{
+  display: flex;
+  justify-content: space-between;
+}
+.single_diet_plan_div:first-of-type{
+  padding-top: 15px;
+}
+.parrot_color, .parrot_color:hover{
+  color: #2DAD00;
+  font-family: 'Gordita';
+  font-weight: 600;
+}
+.orange_color, .orange_color:hover{
+  color: #F2695C;
+  font-family: 'Gordita';
+  font-weight: 600;
+}
+.diet_edit_button{
+  display: flex;
+  column-gap: 15px;
+}
+.diet_edit_button a{
+  position: relative;
+  color: black;
+}
+.diet_edit_button a:first-of-type:before{
+  content: " | ";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: -10px;
+}
+.deit_plan_div ul li{
+  list-style: none;
+}
+.diet_plan_date_div span{
+  cursor: pointer;
+}
+.diet_div p{
+  cursor: pointer;
+}
+.date_diet_div{
+  width: 100%;
+}
+.patient_name_div .single_patient_div{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding: 15px 0px;
+}
+.parrot_button, .parrot_button:hover{
+  color: #2DAD00;
+    background: rgba(45, 173, 0, 0.15); 
+}
+.diet_button, .diet_button:hover{
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.orange_button, .orange_button:hover{
+  background-color: #F2695C;
+  color: white !important;
+}
+.border_button{
+  border: 1px solid #F2695C;
+    color: #F2695C !important;
+}
+.patient_plan_div{
+  padding: 0px 30px;
+}
+a{
+  text-decoration: none;
+}
+.single_info_div h6{
+  padding-bottom: 5px;
+}
+.border_bottom{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.description_div{
+  padding: 25px 30px;
+}
+.description_heading_div{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.description_heading_div .nav-tabs{
+  column-gap: 25px;
+  border:none;
+}
+.description_heading_div .nav-tabs li{
+  padding-bottom: 15px;
+  padding: 0px 15px 0px;
+}
+.description_heading_div .nav-tabs li button.active{
+  border-bottom: 2px solid #F2695C;
+  color: #F2695C;
+  padding-bottom: 15px;
+  font-family: 'Gordita';
+  font-weight: bold;
+}
+.tab-pane{
+	display: none;
+}
+.description_heading_div .nav-tabs li button{
+  color: black;
+  font-family: 'Gordita';
+}
+.description_div{
+  width: 100%;
+}
+.select_time_div{
+  display: flex;
+}
+.meal_plan_table{
+  width: 100%;
+  margin-top: 15px;
+}
+.meal_plan_table .orange_button{
+  height: 39px;
+  min-width: 170px;
+  font-family: 'Gordita';
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.meal_plan_table thead td:last-child{
+  width: 180px;
+}
+.meal_plan_table thead td:first-child{
+  width: 100%;
+}
+.meal_plan_table td{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  padding-top: 15px;
+}
+.meal_plan_table tbody tr:last-child td{
+  border-bottom: none;
+}
+.edit_delete_button{
+  display: flex;
+  column-gap: 10px;
+  justify-content: end;
+}
+.edit_delete_button .border_button{
+  font-family: 'Gordita';
+  font-weight: bold;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ flex: 1;
+}
+.finsh_publish_div .border_button{
+  font-family: 'Gordita';
+  font-weight: bold;
+  height: 39px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.create_meal_plan_div{
+  padding-bottom: 100px;
+}
+.font-400{
+  font-family: 'Gordita';
+  font-weight: 400;
+}
+.font-600{
+  font-family: 'Gordita';
+  font-weight: 600;
+}
+.profile_list ul li .diet_div.active p{
+  color: #F2695C;
+}
+.profile_list ul li .diet_div.active:before{
+  height: 150%;
+  width: 2px;
+  background-color: #F2695C;
+  position: absolute;
+  top: -7px;
+  content: "";
+  right: -30px;
+}
+.profile_list ul li .diet_div{
+  position: relative;
+}
+.select_deit_date{
+  margin-top: 100px;
+}
+.patient_name_list{
+  height: calc(100vh - 140px);
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+.single_diet_plan_div{
+  position: relative;
+}
+.diet_date_active .diet_div.active .single_diet_plan_div:before{
+  content: "";
+  height: 100%;
+  width: 2px;
+  background-color:#F2695C;
+  position: absolute;
+  top: -5px;
+  right: -30px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey;  */
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #E2E2E2;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #E2E2E2;
+}
+/* custome select box */
+.custom-select {
+  position: relative;
+  min-width: 170px;
+}
+
+.custom-select select {
+  display: none;
+}
+.select-selected {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  height: 39px;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: url("../image/down_Arrows.svg");
+  top: 8px;
+  right: 25px;
+  width: 0;
+  height: 0;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 8px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,
+.select-selected {
+  color: black;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+border-top: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.select-items div {
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.select-items div:last-child{
+  border-bottom: none;
+}
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+#appt_time, #start_time{
+  background: transparent;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+min-width: 170px;
+height: 39px;
+margin-right: 10px;
+padding: 5px 15px;
+cursor: pointer;
+}
+#start_datepicker, #datepicker{
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  min-width: 110px;
+  height: 39px;
+  padding: 5px 15px;
+  cursor: pointer;
+  color: #858585;
+}
+#start_datepicker:focus, #datepicker:focus{
+outline: none;
+}
+#start_datepicker{
+  border-right: none;
+  border-radius: 5px 0px 0px 5px;
+}
+#datepicker{
+  border-radius: 0px 0px 0px 0px;
+}
+.date_picker_image{
+  background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deit_date_div{
+  margin-bottom: 20px;
+}
+.new_plan_div{
+  margin-bottom: 20px;
+}
+#appt_time:focus, #start_time:focus{
+  outline: none;
+  box-shadow: none;
+}
+.time_icon{
+  position: absolute;
+    right: 20px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    cursor: pointer;
+    z-index: -1;
+    /* z-index: 99; */
+}
+.submit-btn, .submit-btn:hover{
+  background-color: #F2695C;
+  color: white;
+}
+.patient_plan_div, .date_diet_div{
+  height: 100vh;
+  overflow: auto;
+}
+
+.new_plan_text, .custome_close{
+  color: #F2695C;
+  font-family: 'Gordita';
+  font-weight: bold;
+}
+.custome_close{
+	cursor: pointer;
+}
+.new_plan_div{
+  display: flex;
+  justify-content: space-between;
+}
+.single_patient_div.active{
+  background-color: white;
+}
+.close.mt-n1{
+  border: none;
+  position: absolute;
+  right: 15px;
+  top: 3px;
+  font-size: 23px;
+}
+.deit_date_div{
+  display: flex;
+}
+.deit_date_div input, .deit_date_div div{
+  flex: 1;
+}
+.keyboard-input td input:focus, .btn.meridiem-btn:focus{
+  box-shadow: none;
+}
+.different_profile_div ul li{
+  list-style: none;
+  padding: 15px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.different_profile_div ul li:last-child{
+  border-bottom: none;
+}
+.single_diet_div{
+  display: none;
+}
+
+
+
+
+
+.jqte-test {
+	display:block;
+	margin:0 0 10px;
+	padding:6px;
+	width:95%;
+	background:#FFF;
+	border:#AAA 1px solid;
+	font-size:13px;
+}
+textarea.jqte-test, div.jqte-test, span.jqte-test {
+	min-height:100px;
+}
+
+
+/* editor's general field */
+.jqte {
+	margin:30px 0;
+	overflow:hidden;
+	transition:box-shadow 0.4s, border 0.4s; -webkit-transition:-webkit-box-shadow 0.4s, border 0.4s; -moz-transition:-moz-box-shadow 0.4s, border 0.4s; -o-transition:-o-box-shadow 0.4s, border 0.4s;
+}
+
+/* toolbar */
+.jqte_toolbar {
+	overflow:auto;
+	padding:3px 4px;
+  display: flex;
+}
+.jqte_tool {
+	float:left;
+	margin:0;
+	padding:0;
+	cursor:pointer;
+	margin-right: 15px;
+}
+.jqte_hiddenField {
+	display:none
+}
+.jqte_tool_icon {
+	display:block;
+	width:22px;
+	height:22px;
+	background:url('../image/jquery-te.png') no-repeat
+}
+.jqte_tool.jqte_tool_1 .jqte_tool_label {
+	position:relative;
+	display:block;
+	padding:3px;
+	width:70px;
+	/* height:16px; */
+	overflow:hidden;
+}
+.jqte_tool.jqte_tool_1 .jqte_tool_text {
+	font:bold 13px Arial,sans-serif;
+	color:#222;
+}
+.jqte_tool.jqte_tool_1 .jqte_tool_icon {
+	position:absolute;
+	top:10px;
+	right:2px;
+	width:6px;
+	height:4px;
+	background-position:-19px -23px;
+	border:none;
+	border-radius:none; -webkit-border-radius:none; -moz-border-radius:none
+}
+.jqte_tool.jqte_tool_2 .jqte_tool_icon {
+	background-position:0 0
+}
+.jqte_tool.jqte_tool_3 .jqte_tool_icon {
+	background-position:-22px 0
+}
+.jqte_tool.jqte_tool_4 .jqte_tool_icon {
+	background-position:-44px 0
+}
+.jqte_tool.jqte_tool_5 .jqte_tool_icon {
+	background-position:-66px 0
+}
+.jqte_tool.jqte_tool_6 .jqte_tool_icon {
+	background-position:-88px 0
+}
+.jqte_tool.jqte_tool_7 .jqte_tool_icon {
+	background-position:-110px 0
+}
+.jqte_tool.jqte_tool_8 .jqte_tool_icon {
+	background-position:-132px 0
+}
+.jqte_tool.jqte_tool_9 .jqte_tool_icon {
+	background-position:-154px 0
+}
+.jqte_tool.jqte_tool_10 .jqte_tool_icon {
+	background-position:-176px 0
+}
+.jqte_tool.jqte_tool_11 .jqte_tool_icon {
+	background-position:-198px 0
+}
+.jqte_tool.jqte_tool_12 .jqte_tool_icon {
+	background-position:-220px 0
+}
+.jqte_tool.jqte_tool_13 .jqte_tool_icon {
+	background-position:-242px 0
+}
+.jqte_tool.jqte_tool_14 .jqte_tool_icon {
+	background-position:-264px 0
+}
+.jqte_tool.jqte_tool_15 .jqte_tool_icon {
+	background-position:-286px 0
+}
+.jqte_tool.jqte_tool_16 .jqte_tool_icon {
+	background-position:-308px 0
+}
+.jqte_tool.jqte_tool_17 .jqte_tool_icon {
+	background-position:-330px 0
+}
+.jqte_tool.jqte_tool_18 .jqte_tool_icon {
+	background-position:-352px 0
+}
+.jqte_tool.jqte_tool_19 .jqte_tool_icon {
+	background-position:-374px 0
+}
+.jqte_tool.jqte_tool_20 .jqte_tool_icon {
+	background-position:-396px 0
+}
+.jqte_tool.jqte_tool_21 .jqte_tool_icon {
+	background-position:-418px 0
+}
+
+.jqte_tool:active .jqte_tool_icon, .jqte_tool:active .jqte_tool_label {
+	border:#777 1px solid
+}
+.jqte_tool.jqte_tool_1:hover .jqte_tool_icon, .jqte_tool.jqte_tool_1:active .jqte_tool_icon {
+	border:none
+}
+.jqte_tool_depressed {
+	background-color:#DDD;
+	border-color:#CCC
+}
+.jqte_tool_depressed .jqte_tool_icon {
+	border-color:#AAA
+}
+.jqte_tool_depressed:hover {
+	background-color:#EEE
+}
+/* link form area */
+.jqte_linkform {
+	padding:5px 10px;
+	background:#DDD;
+	border-bottom:#BBB 1px solid;
+}
+.jqte_linktypeselect {
+	position:relative;
+	float:left;
+	width:130px;
+	background:#EEE;
+	cursor:pointer
+}
+.jqte_linktypeselect:Active {
+	background:#FFF
+}
+.jqte_linktypeview {
+	padding:3px 5px;
+	border:#333 1px solid;
+	color:#777;
+	border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;
+	outline:none
+}
+.jqte_linktypetext {
+	font-size:12px;
+}
+.jqte_linktypearrow {
+	position:absolute;
+	bottom:8px; right:6px;
+	width:7px;
+	height:6px;
+	margin:0 auto;
+	background:url('../image/jquery-te.png') -7px -23px no-repeat;
+}
+.jqte_linktypes {
+	display:none;
+	position:absolute;
+	top:22px; left:1px;
+	width:125px;
+	background:#FFF;
+	border:#333 1px solid;
+	box-shadow:0 1px 4px #AAA; -webkit-box-shadow:0 1px 4px #AAA; -moz-box-shadow:0 1px 4px #AAA
+}
+.jqte_linktypes a {
+	display:block;
+	padding:4px 5px;
+	font-size:12px;
+}
+.jqte_linktypes a:hover {
+	background:#DDD
+}
+.jqte_linkinput {
+	float:left;
+	margin:0 5px;
+	padding:3px 5px;
+	width:300px;
+	background:#EEE;
+	border:#333 1px solid;
+	color:#777;
+	font-size:12px;
+	border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;
+	outline:none;
+}
+.jqte_linkinput:focus, .jqte_linkinput:hover {
+	background:#FFF;
+	border-color:#000;
+}
+.jqte_linkbutton {
+	float:left;
+	padding:3px 12px;
+	background:#AAA;
+	border:#333 1px solid;
+	color:#FFF;
+	font-size:12px;
+	font-weight:bold;
+	cursor:pointer;
+	border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;
+	box-shadow:inset 0 1px #EEE; -webkit-box-shadow:inset 0 1px #EEE; -moz-box-shadow:inset 0 1px #EEE;
+}
+.jqte_linkbutton:hover {
+	background:#A1A1A1
+}
+.jqte_linkbutton:active {
+	box-shadow:inset 0 1px #CCC; -webkit-box-shadow:inset 0 1px #CCC; -moz-box-shadow:inset 0 1px #CCC;
+	background:#888;
+}
+
+/* text format menu */
+.jqte_formats {
+	display:none;
+	position:absolute;
+	width:180px;
+	oveflow-x:hidden;
+	overflow-y:auto;
+	background:#FFF;
+	border:#AAA 1px solid;
+	box-shadow:0 0 5px #AAA; -webkit-box-shadow:0 0 5px #AAA; -moz-box-shadow:0 0 5px #AAA;
+	z-index:100;
+}
+.jqte_format {
+	display:block;
+	padding:4px 7px;
+	font-size:13px
+}
+.jqte_format:hover {
+	background:#DDD
+}
+.jqte_format_1, .jqte_format_2, .jqte_format_3, .jqte_format_4, .jqte_format_5, .jqte_format_6 {
+	font-weight:bold
+}
+.jqte_format_1 {
+	font-size:22px
+}
+.jqte_format_2 {
+	font-size:20px
+}
+.jqte_format_3 {
+	font-size:18px
+}
+.jqte_format_4 {
+	font-size:16px
+}
+.jqte_format_5 {
+	font-size:14px
+}
+.jqte_format_6 {
+	font-size:12px
+}
+.jqte_format_7 {
+	font-family:"Courier New", Courier, monospace
+}
+
+/* font size menu */
+.jqte_fontsizes {
+	display:none;
+	position:absolute;
+	width:180px;
+	height:198px;
+	oveflow-x:hidden;
+	overflow-y:auto;
+	background:#FFF;
+	border:#AAA 1px solid;
+	box-shadow:0 0 5px #AAA; -webkit-box-shadow:0 0 5px #AAA; -moz-box-shadow:0 0 5px #AAA
+}
+.jqte_fontsize {
+	display:block;
+	padding:3px 7px;
+}
+.jqte_fontsize:hover {
+	background:#DDD
+}
+
+/* color pallette */
+.jqte_cpalette {
+	display:none;
+	position:absolute;
+	padding:6px;
+	width:144px;
+	background:#FFF;
+	border:#AAA 1px solid;
+	box-shadow:0 0 5px #AAA; -webkit-box-shadow:0 0 5px #AAA; -moz-box-shadow:0 0 5px #AAA
+}
+.jqte_color {
+	display:block;
+	float:left;
+	width:16px;
+	height:16px;
+	border:#FFF 1px solid;
+}
+.jqte_color:hover {
+	border-color:#000
+}
+.jqte_colorSeperator {
+    float:none;
+    clear:both;
+    height:7px;
+}
+
+/* editor area */
+.jqte_editor, .jqte_source {
+	padding:10px;
+	background:#FFF;
+	min-height:100px;
+	max-height:900px;
+	overflow:auto;
+	outline:none;
+	word-wrap:break-word; -ms-word-wrap:break-word;
+	resize:vertical
+}
+.jqte_editor div, .jqte_editor p {
+	margin:0 0 7px
+}
+.jqte_editor a:link, .jqte_editor a:link * {
+	color:#0066FF !important;
+	text-decoration:underline;
+}
+.jqte_editor blockquote {
+	margin-top:0;
+	margin-bottom:7px
+}
+.jqte_editor img {
+    float:left;
+	margin:0 10px 5px 0
+}
+.jqte_editor a[jqte-setlink], .jqte_editor a[jqte-setlink] * {
+	background:#3297FD !important;
+	color:#FFF !important
+}
+.jqte_editor h1, .jqte_editor h2, .jqte_editor h3, .jqte_editor h4, .jqte_editor h5, .jqte_editor h6, .jqte_editor pre {
+	display:block;
+	margin:0 0 3px;
+}
+.jqte_editor h1, .jqte_editor h1 * {
+	font-size:26px
+}
+.jqte_editor h2, .jqte_editor h2 * {
+	font-size:24px
+}
+.jqte_editor h3, .jqte_editor h3 * {
+	font-size:22px
+}
+.jqte_editor h4, .jqte_editor h4 * {
+	font-size:20px
+}
+.jqte_editor h5, .jqte_editor h5 * {
+	font-size:18px
+}
+.jqte_editor h6, .jqte_editor h6 * {
+	font-size:15px
+}
+.jqte_editor pre, .jqte_editor pre * {
+	font-family:"Courier New", Courier, monospace
+}
+
+/* source area */
+.jqte_source, .jqte_source textarea {
+	background:#FFF1E8
+}
+.jqte_source textarea {
+	margin:0 !important;
+	padding:0 !important;
+	display:block !important;
+	width:100% !important;
+	min-height:100px;
+	font-family:Courier, Arial, sans-serif !important;
+	font-weight:normal;
+	font-size:15px;
+	overflow:hidden !important;
+	outline:none;
+	resize:none;
+}
+.jqte_source textarea, .jqte_source textarea:focus {
+	css_shadow:none !important;
+	background:none !important;
+	border:none !important;
+}
+
+/* title box */
+.jqte_title {
+	display:none;
+	position:absolute;
+	z-index:9999;
+}
+.jqte_titleArrow {
+	position:relative;
+}
+.jqte_titleArrowIcon {
+	width:7px;
+	height:6px;
+	margin:0 auto;
+	background:url('../image/jquery-te.png') 0 -23px no-repeat;
+}
+.jqte_titleText {
+	padding:5px 7px;
+	margin-top:0;
+	min-width:5px;
+	min-height:1px;
+	max-width:400px;
+	background:#000;
+	border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;
+	word-wrap:break-word; -ms-word-wrap:break-word
+}
+.jqte_titleText, .jqte_titleText * {
+	color:#FFF;
+	font-size:11px
+}
+
+/* placeholder */
+.jqte_placeholder {
+	position:relative;
+	display:none;
+}
+.jqte_placeholder_text {
+	position:absolute;
+	top:43px;
+	left:10px;
+	font-size:14px;
+	color:#CCC;
+}
