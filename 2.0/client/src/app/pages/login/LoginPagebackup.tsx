@@ -56,22 +56,17 @@ const LoginPage = () => {
         initialValues={{
           email: '',
           password: '',
-          terms: true,
+          terms: false,
         }}
       >
         {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => (
-        <div className="login_main_div">
-        <div className="login_inner_div">
-            <div className="login_img">
-                <img src="image/logo.png" alt="" className="img-fluid" height="50" width="45" />
-            </div>
-            <div className="login_form">
-                <h2 className="login_heading pb-4">Account Your Login </h2>
-                <form action="" noValidate onSubmit={handleSubmit}>
-                    <div className="form_input_div">
-                        
-                        <InputGroup hasValidation>
-           
+          <Card className="card" style={{ width: '18rem' }}>
+            <Card.Title className="title">Login Page</Card.Title>
+            <Form className="form" noValidate onSubmit={handleSubmit}>
+              <Form.Group as={Col} md="12" controlId="validationFormikEmail">
+                <Form.Label>Email</Form.Label>
+                <InputGroup hasValidation>
+                  <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
                   <Form.Control
                     type="text"
                     placeholder="Your email address"
@@ -83,10 +78,11 @@ const LoginPage = () => {
                   />
                   <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
                 </InputGroup>
-                    </div>
-                    <div className="form_input_div">
-                    <InputGroup hasValidation>
-                
+              </Form.Group>
+              <Form.Group as={Col} md="12" controlId="validationFormik02">
+                <Form.Label>Password</Form.Label>
+                <InputGroup hasValidation>
+                  <InputGroup.Text id="inputGroupPrepend">&#128273;</InputGroup.Text>
                   <Form.Control
                     type="password"
                     placeholder="Your password"
@@ -96,21 +92,23 @@ const LoginPage = () => {
                     isValid={touched.password && !errors.password}
                   />
                 </InputGroup>
-                    </div>
-                    <div className="form_input_div text-center">
-                        <input type="checkbox" className="checkbox_input" />
-                        <label  >Remember Password</label>
-                    </div>
-                    <div className="form_button">
-                        <Button type='submit'>Login Accounthh</Button>
-                    </div>
-                </form>
-                <div className="forget_password_text text-center">
-                    <p>If you forgot password please contact admin for the same </p>
-                </div>
-            </div>
-        </div>
-    </div>
+                <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group>
+                <Form.Check
+                  required
+                  name="terms"
+                  label="Agree to terms and conditions"
+                  onChange={handleChange}
+                  isInvalid={!!errors.terms}
+                  feedback={errors.terms}
+                  feedbackType="invalid"
+                  id="validationFormik0"
+                />
+              </Form.Group>
+              <Button type="submit">Submit form</Button>
+            </Form>
+          </Card>
         )}
       </Formik>
     </div>
