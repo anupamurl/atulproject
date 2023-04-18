@@ -25,7 +25,14 @@ const RootNavigation = () => {
           <Route path="/my" element={<MyArticlesPage />} />
         </Route>
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+
+
+ 
+        <Route path="/dashboard" element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
+
+
       </Routes>
     </BrowserRouter>
   )

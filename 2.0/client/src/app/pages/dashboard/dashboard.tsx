@@ -73,7 +73,7 @@ const Dashboard = () => {
                 </div>
                 <div className="login_name">
                     <h6 className="black_color">Dr. Sumitra Sinha</h6>
-                    <a href="" className="logout_button">Logout</a>
+                    <a href=""  className="logout_button">Logout</a>
                 </div>
             </div>
         </div>
