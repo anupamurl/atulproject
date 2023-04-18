@@ -5,6 +5,7 @@ import MyArticlesPage from '../pages/myArticles/MyArticlesPage'
 import AboutPage from '../pages/about/AboutPage'
 import { useAppSelector } from '../redux/hooks'
 import { selectAuthenticatedUser } from '../redux/slices/auth.slice'
+import Dashboard from '../pages/dashboard/dashboard'
 
 // A wrapper for <Route> that redirects to the login
 // screen if you're not yet authenticated.
@@ -24,6 +25,7 @@ const RootNavigation = () => {
           <Route path="/my" element={<MyArticlesPage />} />
         </Route>
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   )
